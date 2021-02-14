@@ -1,5 +1,5 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
-import { Cart, LocalStorageProductCart, Product } from '../dtos/types';
+import React, { createContext, useCallback, useContext, useState } from 'react';
+import { Cart, Product } from '../dtos/types';
 
 interface CartContextData {
     addProductInCart(product: Product): void;
@@ -11,6 +11,8 @@ const CartContext = createContext<CartContextData>({} as CartContextData);
 
 const CartProvider: React.FC = ({ children }) => {
 
+    // DEPENDÊNCIAS E FUNÇÕES DO CARRINHO
+
     const [cart, setCart] = useState<Cart>(() => {
         const local = localStorage.getItem('@GameStore:localCart');
         if (local) {
@@ -19,8 +21,6 @@ const CartProvider: React.FC = ({ children }) => {
         }
         return { FreteTotal: 0, OrderSubtotal: 0, OrderTotal: 0, products: [] }
     });
-
-    // SALVANDO PRODUTOS
 
     const addProductInCart = useCallback((product: Product) => {
 
@@ -40,7 +40,7 @@ const CartProvider: React.FC = ({ children }) => {
         cart.products.map(product => {
             subtotal = subtotal + product.product.price * product.quantity;
             frete = frete + 10 * product.quantity
-
+            return product;
         })
 
         let total = 0;        
@@ -75,6 +75,7 @@ const CartProvider: React.FC = ({ children }) => {
         cart.products.map(product => {
             subtotal = subtotal + product.product.price * product.quantity;
             frete = frete + 10 * product.quantity
+            return product;
         })
         let total = 0;        
         if(subtotal> 250){
@@ -93,7 +94,7 @@ const CartProvider: React.FC = ({ children }) => {
 
     }, [cart.products])
 
-
+    // SALVANDO PRODUTOS
 
     localStorage.setItem('@GameStore:localCart', JSON.stringify(cart));
 

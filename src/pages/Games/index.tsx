@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
 import Header from '../../components/Header';
 import { Product } from '../../dtos/types';
 import { api } from '../../services/api';
 import { formatValue } from '../../utils/formatValue';
-import { Container, Content, Seach, ListGames, PriceOrder, ScoreOrder, AlphabeticalOrder, Filter, List, CardGame, Image, Price, Name, GameInfo, LinkGame, Score, SearchContent, SearchButton, SearchInput } from './styles';
+import { Container, Content, Seach, ListGames, PriceOrder, ScoreOrder, AlphabeticalOrder, Filter, List, CardGame, Image, Price, Name, GameInfo, LinkGame, Score, SearchContent, SearchInput } from './styles';
 
 const Games: React.FC = () => {
 
@@ -22,7 +21,7 @@ const Games: React.FC = () => {
 
 
     const handleSelectFilter = useCallback((select: string) => {
-        console.log(select)
+        setSearch([])
         setFilterStyle(select);
         switch (select) {
             case 'Ordenados por preço':
@@ -41,7 +40,7 @@ const Games: React.FC = () => {
                 const organizingProductsAlphabetical = products.sort((product1, product2) => {
                     let product1LowCase = product1.name.toLowerCase()
                     let product2LowCase = product2.name.toLowerCase()
-                    return product1LowCase == product2LowCase ? 0 : product1LowCase > product2LowCase ? 1 : -1;
+                    return product1LowCase === product2LowCase ? 0 : product1LowCase > product2LowCase ? 1 : -1;
                 })
                 setFilter(organizingProductsAlphabetical);
                 break;

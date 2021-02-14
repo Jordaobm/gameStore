@@ -31,7 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server ./src/products.json -p 3333"
+    "server": "json-server ./src/products.json -p 3333",
+    "clear": "jest --clearCache"
   },
   "eslintConfig": {
     "extends": [

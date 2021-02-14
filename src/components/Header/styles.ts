@@ -1,17 +1,17 @@
 import { ButtonHTMLAttributes } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
    width:100%;
-   padding:20px 0;
+   padding:20px 2%;
+   
    /* background-color:red;  */
 `;
 export const Content = styled.div`
     width:100%;
     max-width:1120px;
     margin:0 auto;
-    padding:0 2%;
     /* background-color:yellow; */
     display:flex;
     justify-content:space-between;
@@ -22,7 +22,9 @@ export const Content = styled.div`
     }
 
 `;
-export const Logo = styled.div`
+export const Logo = styled(Link)`
+    text-decoration:none;
+    color:#000;
    @media(max-width: 500px){
        font-size:20px;
     }

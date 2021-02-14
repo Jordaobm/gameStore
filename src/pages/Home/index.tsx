@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import { BackgroundParallax, Container, FeaturedInfo, FeaturedText, NewGames, NewGameScroll, NewGamesTextAndAction } from './styles';
-import banner from '../../assets/banner.jpg';
-import { Background, Parallax } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 import CardGame from '../../components/CardGame';
 import Arrow from '../../components/Arrow';
 import { api } from '../../services/api';
@@ -20,13 +19,15 @@ const Home: React.FC = () => {
             const products = response.data;
 
             let scoreCompare = 0
-            const compare = products.map(product => {
+            products.map(product => {
                 const isBigger = product.score > scoreCompare;
                 if (isBigger) {
                     scoreCompare = product.score;
                 }
+                return product;
             })
             setFeaturedGame(products.find(product => product.score === scoreCompare))
+        }).catch(response => {
         })
     }, [])
 

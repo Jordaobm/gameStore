@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
     width:100%;
@@ -66,9 +65,28 @@ export const GameInfo = styled.div`
     
 `;
 
+export const Star = styled.div`
+    position:relative;
+    top:3px;
+    margin-left:10px;
+    cursor: pointer;
+
+    svg {
+        color:#000;
+        transition:0.2s;
+
+        :hover{
+            color:yellow;
+        }
+    }
+`;
+
 export const Name = styled.div`
+    display:flex;
+    align-items:center;
+
     h1 {
-        font-size: 34px;
+        font-size: 28px;
         line-height: 42px;
     }
 `;
@@ -112,6 +130,7 @@ export const DeveloperAndCategory = styled.div`
 
 export const Buy = styled.div`
     width:20%;
+   
     @media(max-width: 1050px){
         margin-top:20px;
         width:100%;
@@ -119,8 +138,18 @@ export const Buy = styled.div`
         align-items:center;
         text-align:center;
     }  
+    
 `;
 
+export const GoToCart = styled.div`
+    margin-top:10px;
+ a{  
+        line-height:30px;
+        color:#0067b8;
+        text-decoration:none;
+
+    }
+`;
 
 
 export const Price = styled.div`
@@ -128,8 +157,11 @@ export const Price = styled.div`
     font-weight: 600;
 `;
 
+interface ButtonProps {
+    buttonStyle: boolean;
+}
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
     width:200px;
     margin-top:20px;
     font-weight: 600;
@@ -154,23 +186,58 @@ export const Button = styled.button`
         background-color:#005293;
         box-shadow: 0 8px 10px 0 rgb(0 0 0 / 20%);
     }
+    
+    ${props => props.buttonStyle && css`
+        background-color:#46b314;
+        :hover{
+        background-color:#3fa112;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    }
+
+    :focus{
+        background-color:#388f10;
+        box-shadow: 0 8px 10px 0 rgb(0 0 0 / 20%);
+    }
+
+    `}
 
     @media(max-width: 1050px){
        
         width:100%;
         max-width:300px;
-    }  
+    }
 
 `;
 
 export const KeepBuying = styled.div`
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:200px;
     margin-top:10px;
+    
+    min-height: 44px;
+    position: relative;
+    border: 2px solid transparent;
+    outline: 0;
+    color: #fff;
+    background-color: #e6e600;
+    cursor: pointer;
+    transition:0.2s;
+
+    :hover{
+        background-color:#cccc00;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    }
+
+    :focus{
+        background-color:#b3b300;
+        box-shadow: 0 8px 10px 0 rgb(0 0 0 / 20%);
+    }
     a {
+        font-weight: 500;
         text-decoration:none;
         font-size: 15px;
-        color: #0067b8;
-        border:0;
-        background-color:transparent;
-        cursor: pointer;
+        color: #fff;
     }
 `;
