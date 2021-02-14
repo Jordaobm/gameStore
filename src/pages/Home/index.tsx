@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
-import { Container, FeaturedInfo, FeaturedText, NewGames, NewGameScroll, NewGamesTextAndAction } from './styles';
+import { BackgroundParallax, Container, FeaturedInfo, FeaturedText, NewGames, NewGameScroll, NewGamesTextAndAction } from './styles';
 import banner from '../../assets/banner.jpg';
-import { Parallax } from 'react-parallax';
+import { Background, Parallax } from 'react-parallax';
 import CardGame from '../../components/CardGame';
 import Arrow from '../../components/Arrow';
 import { api } from '../../services/api';
@@ -22,11 +22,11 @@ const Home: React.FC = () => {
             let scoreCompare = 0
             const compare = products.map(product => {
                 const isBigger = product.score > scoreCompare;
-                if(isBigger){
+                if (isBigger) {
                     scoreCompare = product.score;
                 }
             })
-            setFeaturedGame(products.find(product=>product.score === scoreCompare))
+            setFeaturedGame(products.find(product => product.score === scoreCompare))
         })
     }, [])
 
@@ -34,19 +34,19 @@ const Home: React.FC = () => {
         <>
             <Header />
 
+            <BackgroundParallax>
+                <Parallax blur={3} bgImageStyle={{ opacity: '.5', backgroundColor: '#000' }} style={{ height: '88vh' }} bgImage={featuredGame?.banner} strength={200}>
 
-            <Parallax blur={3} style={{ height: '88vh' }} bgImage={featuredGame?.banner} strength={200}>
-
-                <FeaturedText>
-                    <FeaturedInfo>
-                        <h3>Destaque da semana</h3>
-                        <h4>{featuredGame?.name}</h4>
-                    </FeaturedInfo>
-                </FeaturedText>
+                    <FeaturedText>
+                        <FeaturedInfo>
+                            <h3>Destaque da semana</h3>
+                            <h4>{featuredGame?.name}</h4>
+                        </FeaturedInfo>
+                    </FeaturedText>
 
 
-            </Parallax>
-
+                </Parallax>
+            </BackgroundParallax>
             <Container>
                 <NewGames>
                     <NewGamesTextAndAction>
@@ -82,7 +82,7 @@ const Home: React.FC = () => {
                     />
                 </NewGames> */}
             </Container>
-                
+
 
         </>
     )

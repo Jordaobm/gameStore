@@ -10,6 +10,10 @@ export const Container = styled.div`
 
 `;
 
+export const BackgroundParallax = styled.div`
+    background-color:#000;
+`;
+
 export const FeaturedText = styled.div`
     max-width:1120px;
     margin:0 auto;
@@ -31,12 +35,18 @@ export const FeaturedInfo = styled.div`
         font-size: 48px;
         line-height: 48px;
         color: #FFFFFF;
+        @media(max-width: 500px){
+            font-size: 26px;
+        }
     }
     h4 {
         font-weight:400;
         font-style: normal;
         font-size: 30px;
         color: #FFFFFF;
+        @media(max-width: 500px){
+            font-size: 20px;
+        }
     }
 `;
 
@@ -54,6 +64,10 @@ export const NewGamesTextAndAction = styled.div`
     h3 {
         font-size: 40px;
         font-weight: 300;
+
+        @media(max-width: 500px){
+            font-size: 22px;
+        }
     }
 
     a {
@@ -65,6 +79,12 @@ export const NewGamesTextAndAction = styled.div`
         :hover{
             color:#0167b9;
         }
+        @media(max-width: 500px){
+            font-size: 12px;
+        }
+    }
+    @media(max-width: 500px){
+        padding:0 2%;
     }
 `;
 
@@ -73,6 +93,12 @@ export const NewGameScroll = styled(ScrollMenu)`
     display:flex;
     position:relative;
     left:-20px;
+
+    @media(max-width: 500px){
+        position:initial;
+        left:0;
+        width:100%;
+    }
     
 `;
 export const NewGameCard = styled.div`

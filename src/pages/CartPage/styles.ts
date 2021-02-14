@@ -6,26 +6,44 @@ export const Content = styled.div`
     max-width:1120px;
     margin:0 auto;
     margin-top:20px;
+    padding:0 2%;
     h1 {
         font-size: 24px;
         line-height: 28px;
         padding: 36px 0 4px;
         font-weight: 600;
         padding-top: 0;
+        @media(max-width: 500px){
+            text-align:center;
+            font-size: 24px;
+            line-height: 28px;
+            padding: 0px;
+        }
     }
+
+   
+    
 `;
 export const ListGamesInCard = styled.div`
    display:flex;
    justify-content:space-between;
    margin-top:30px;
    margin-left:-10px;
+
+   @media(max-width: 1000px){
+       flex-direction:column;
+    }
 `;
 export const ContentCardGames = styled.div`
     padding-right:20px;
     display:flex;
     flex-direction:column;
     width:70%;
+    @media(max-width: 1000px){
+       width:100%;
+    padding-right:0px;
 
+    }
 `;
 
 
@@ -37,12 +55,20 @@ export const CardGame = styled.div`
    display:flex;
     align-items:center;
     margin-bottom:50px;
+
+    @media(max-width: 500px){
+       flex-direction:column;
+    }
 `;
 
 
 
 export const Image = styled.img`
     width:15%;
+    @media(max-width: 500px){
+       width:100%;
+       max-width:200px;
+    }
 `;
 
 export const Info = styled.div`
@@ -56,6 +82,10 @@ export const Info = styled.div`
 export const GameInfo = styled.div`
     width:85%;
     padding:0 10px;
+
+    @media(max-width: 500px){
+       margin-top:20px;
+    }
 `;
 export const Name = styled.div`
     width:60%;
@@ -96,6 +126,11 @@ export const RemoveGameTheCart = styled.button`
 export const Resume = styled.div`
     width:30%;
     margin-left:50px;
+
+    @media(max-width: 1000px){
+       width:100%;
+       margin-left:5px;
+    }
 `
 
 export const OrderSummary = styled.div`

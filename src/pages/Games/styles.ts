@@ -8,6 +8,10 @@ export const Content = styled.div`
     margin:0 auto;
     display:flex;
     margin-top:50px;
+
+    @media(max-width: 900px){
+       flex-direction:column;
+    }
 `;
 export const Seach = styled.div`
     width:30%;
@@ -19,6 +23,11 @@ export const Seach = styled.div`
         font-weight: 600;
         padding:10px;
     }
+
+    @media(max-width: 900px){
+       width:100%;
+       padding:0 2%;
+    }
 `;
 export const ListGames = styled.div`
     width:69%;
@@ -29,6 +38,10 @@ export const ListGames = styled.div`
         line-height: 28px;
         font-weight: 600;
         padding:10px;
+    }
+
+    @media(max-width: 900px){
+       width:100%;
     }
 
 `;
@@ -93,6 +106,9 @@ export const List = styled.div`
     grid-gap:20px;
     grid-template-columns: 1fr 1fr 1fr;
     width:100%;
+    @media(max-width: 900px){
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const CardGame = styled.div`
@@ -148,9 +164,10 @@ export const SearchContent = styled.div`
     width:100%;
     margin-top:10px;
     margin-bottom:20px;
+    padding-right:20px;
     /* background-color:red; */
     display:flex;
-    justify-content:space-around;
+    justify-content:center;
     align-items:center;
 `;
 export const SearchInput = styled.input`
@@ -165,6 +182,11 @@ export const SearchInput = styled.input`
 
     :focus{
     border:2px solid #0172ce;
+    }
+
+    @media(max-width: 900px){
+        margin-left: 0;
+        margin:0 2%;
     }
 `;
 

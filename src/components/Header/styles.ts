@@ -16,12 +16,24 @@ export const Content = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
+    
+    @media(max-width: 500px){
+       flex-direction:column;
+    }
+
 `;
 export const Logo = styled.div`
-   
+   @media(max-width: 500px){
+       font-size:20px;
+    }
 `;
 export const Categories = styled.div`
     display:flex;
+    @media(max-width: 500px){
+       align-items:center;
+       justify-content:center;
+       flex-direction:column;
+    }
 `;
 
 
@@ -33,6 +45,12 @@ export const Icons = styled.div`
 
     a {
         text-decoration:none;
+    }
+
+    @media(max-width: 500px){
+        margin-top:15px;
+        flex-direction:column;
+        justify-content:centere;
     }
 `;
 
@@ -61,6 +79,8 @@ export const MyLinkDiv = styled.button<MyLinkDivProps>`
          }
 ;
     `}
+
+    
 `;
 
 

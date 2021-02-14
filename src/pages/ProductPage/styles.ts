@@ -17,26 +17,52 @@ export const Content = styled.div`
     justify-content:space-around;
     padding:40px;
     border-radius:5px 5px 0px 0px;
+    @media(max-width: 1050px){
+       flex-direction:column;
+       align-items:center;
+       justify-content:center;
+       top:0;
+    }
     
 `;
 
 export const GameBanner = styled.div`
-   
+   background-color:#000;
 `;
 
 export const Banner = styled.img`
     width:100%;
+    opacity:0.8;
 `;
 
 export const Image = styled.img`
     width:30%;
+    @media(max-width: 1050px){
+        width:100%;
+        max-width:500px;
+    }
 `;
 
 export const GameInfo = styled.div`
     width:50%;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;    
+    justify-content:space-between;  
+    @media(max-width: 1050px){
+        width:100%;
+        flex-direction:column;
+        margin-top:20px;
+        justify-content:center;
+        align-items:center;
+    } 
+    div {
+        @media(max-width: 1050px){
+            text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }  
+    } 
     
 `;
 
@@ -86,6 +112,13 @@ export const DeveloperAndCategory = styled.div`
 
 export const Buy = styled.div`
     width:20%;
+    @media(max-width: 1050px){
+        margin-top:20px;
+        width:100%;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+    }  
 `;
 
 
@@ -121,6 +154,12 @@ export const Button = styled.button`
         background-color:#005293;
         box-shadow: 0 8px 10px 0 rgb(0 0 0 / 20%);
     }
+
+    @media(max-width: 1050px){
+       
+        width:100%;
+        max-width:300px;
+    }  
 
 `;
 
