@@ -1,0 +1,134 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Watch Dogs 2",
+      "price": 105.90,
+      "score": 900,
+      "image": "https://cdn.awsli.com.br/600x450/1318/1318697/produto/80526261/watch-dogs-2-ps4-midia-digital-dublado-a9e9cf83.png",
+      "banner":"https://www.ytgraphics.com/static/1c26bd0238d12ce2b09b68091b8e87a9/8c3c2/watch-dogs-2.jpg",
+      "developer_name":"Ubisoft",
+      "categories": "Jogo eletrônico de tiro, Mundo aberto",
+      "ParentalRating":"16 anos",
+      "Description": "Watch_Dogs 2 é ambientado na baía de São Francisco e se desenrola sob a pele de Marcus Holloway, um hacker que foi vítima dos algoritmos de previsão de crime do ctOS 2.0 e acusado injustamente de um delito que não cometeu. Agora, ele pretende desligar o sistema de uma vez por todas, e para isso deverá usar todo o seu conhecimento para invadir tanto a rede que controla a infraestrutura da cidade quanto os dispositivos de seus moradores, permitindo que ele tenha total poder sobre drones, carros, portas, câmeras de segurança e outros recursos."
+
+    },
+    {
+      "id": 2,
+      "name": "Call Of Duty Infinite Warfare",
+      "price": 57.90,
+      "score": 80,
+      "image": "https://images-submarino.b2w.io/produtos/01/00/item/129427/7/129427793_1GG.png",
+      "banner":"https://i1.wp.com/www.gaming-pt.com/wp-content/uploads/2016/11/Infinite-Warfare.png?fit=1600%2C900",
+      "developer_name":"Infinity Ward",
+      "categories": "Tiro em primeira pessoa",
+      "ParentalRating":"18 anos",
+      "Description": "A campanha do jogo está centrada em torno de uma batalha pelo Sistema Solar, que a Frente de Defesa do Assentamento (SDF), uma força hostil que são os principais antagonistas, estão tentando assumir. O jogador assume o controle do Tenente Nick Reyes do Special Combat Air Recon (SCAR). Eles têm seu próprio caça transformador, chamado 'Chacal', que eles podem personalizar, bem como um hub central chamado Retribution."
+
+    },
+    {
+      "id": 3,
+      "name": "The Witcher III Wild Hunt",
+      "price": 119.5,
+      "score": 250,
+      "image": "https://images-americanas.b2w.io/produtos/01/00/offers/01/00/item/120853/3/120853315_1GG.png",
+      "banner":"https://www.consolecreatures.com/wp-content/uploads/2014/11/so-much-free-dlc-in-the-witcher.jpg",
+      "developer_name":"CD PROJEKT S.A",
+      "categories": "Ação e aventura, ‪RPG‬",
+      "ParentalRating":"16 anos",
+      "Description": "The Witcher 3: Wild Hunt é um RPG de mundo aberto, ambientado em um mundo fantástico cheio de escolhas com consequências importantes. Em The Witcher, você é um caçador de monstros profissional em busca da criança da profecia em um vasto mundo aberto, rico em cidades mercantis, ilhas com piratas, passagens perigosas nas montanhas e cavernas esquecidas a serem exploradas."
+
+    },
+    {
+      "id": 4,
+      "name": "Call Of Duty WWII",
+      "price": 249.99,
+      "score": 205,
+      "image": "https://i.pinimg.com/originals/92/51/ca/9251ca6d8095812d76677b4ad4919e12.png",
+      "banner":"https://www.callofduty.com/content/dam/atvi/callofduty/wwii/home/Stronghold_Metadata_Image.jpg",
+      "developer_name":"Sledgehammer Games",
+      "categories": "Tiro em primeira pessoa",
+      "ParentalRating":"18 anos",
+      "Description": "A campanha de WWII foca-se na vida de um soldado americano e no seu pelotão, onde se mostram momentos de vivência em grupo e de lealdade. Durante o seu desenrolar, a campanha passa em pontos emblemáticos da Segunda Guerra Mundial, como o Dia-D, a Operação Cobra, a Batalha de Aachen, a Batalha da Floresta de Hürtgen e a Batalha das Ardenas. Um dos principais objetivos da campanha de Call of Duty WWII é imitar a realidade da Segunda Guerra Mundial. Esta é apresentada pelos momentos de heroísmo, pela proximidade que os nossos companheiros de equipe têm e, em algumas partes, pela brutalidade que houve naquele período.      "
+
+    },
+    {
+      "id": 5,
+      "name": "Mortal Kombat XL",
+      "price": 105.59,
+      "score": 150,
+      "image": "https://images-americanas.b2w.io/produtos/01/00/offers/01/00/item/126077/6/126077695_1GG.png",
+      "banner":"https://macgamesbox.com/wp-content/uploads/Mortal-Kombat-XL-for-Mac-OS-X.jpg",
+      "developer_name":"NetherRealm Studios",
+      "categories": "Luta",
+      "ParentalRating":"18 anos",
+      "Description": "Mortal Kombat X‍ é um jogo de luta em que dois jogadores lutam um contra o outro, usando uma enorme variedade de ataques. Para além de incluir várias mecânicas usadas em capítulos anteriores, em Mortal Kombat X‍ cada lutador tem três ‘variações’, cada uma com o seu próprio estilo e lista de movimentos. Mortal Kombat X‍ tem vários modos, como o modo história que tem lugar vinte anos depois dos acontecimentos ocorridos no jogo anterior, numerosos modos online, e a 'Kripta', em que o jogador usa uma perspectiva na primeira pessoa e tem de explorar áreas para desbloquear várias recompensas."
+
+    },
+    {
+      "id": 6,
+      "name": "Grand Theft Auto V",
+      "price": 151.02,
+      "score": 2000,
+      "image": "https://images-americanas.b2w.io/produtos/01/00/item/120857/6/120857615_1GG.png",
+      "banner":"http://www.popculturebeast.com/wp-content/uploads/2014/09/beautiful-game-gta-5-desktop-wallpaper-pictures-background-games-images-gta-hd-wallpaper.jpg",
+      "developer_name":"Rockstar Games",
+      "categories": "Ação-aventura",
+      "ParentalRating":"18 anos",
+      "Description": "Grand Theft Auto V é um jogo eletrônico de ação-aventura desenvolvido pela Rockstar North e publicado pela Rockstar Games. É o sétimo título principal da série Grand Theft Auto e foi lançado originalmente em 17 de setembro de 2013 para PlayStation 3 e Xbox 360, com remasterizações lançadas em 2014 para PlayStation 4 e Xbox One, em 2015 para Microsoft Windows e em 2021 para PlayStation 5 e Xbox Series X. O jogo se passa no estado ficcional de San Andreas, com a história da campanha um jogador seguindo três criminosos e seus esforços para realizarem assaltos sob a pressão de uma agência governamental. O mundo aberto permite que os jogadores naveguem livremente pelas áreas rurais e urbanas de San Andreas."
+
+    },
+    {
+      "id": 7,
+      "name": "God of War 4",
+      "price": 229.90,
+      "score": 500,
+      "image": "https://www.pharaohshop.com.br/imagesProd/PS4-God-of-War-5210.png",
+      "banner":"https://revolutionnow.com.br/wp-content/uploads/2018/05/ps4-only-on-playstation-god-of-war-banner-02-us-02aug17.jpg",
+      "developer_name":"Santa Monica Studio",
+      "categories": "Ação-aventura, Hack and slash",
+      "ParentalRating":"18 anos",
+      "Description": "Enquanto os primeiros sete jogos foram vagamente baseados na mitologia grega, este título leva a série à mitologia nórdica.[23] Seis dos nove reinos da mitologia nórdica podem ser explorados. Antecedendo os Vikings,[21][24] a maioria do jogo ocorre na antiga Noruega no reino de Midgard, habitado por seres humanos e outras criaturas e é o mesmo reino que o mundo grego havia existido. Quanto mais criaturas começaram a aparecer muitos humanos fugiram. Outros reinos visitados como parte da história incluem Alfheim, a casa mística dos elfos da luz e das trevas, Helheim, a terra gelada dos mortos, e Jotunheim, a terra montanhosa dos gigantes."
+    },
+    {
+      "id": 8,
+      "name": "Red Dead Redemption 2",
+      "price": 148.71,
+      "score": 1000,
+      "image": "https://pharaohshop.com.br/imagesProd/PS4-Red-Dead-Redemption-2-7936.png",
+      "banner":"https://i0.wp.com/www.portaldonerd.com.br/wp-content/uploads/2018/11/red-dead-redemption-2-hero-banner-03-ps4-us-07jun18.jpg?fit=1296%2C652&ssl=1",
+      "developer_name":"Rockstar Games",
+      "categories": "Ação-aventura",
+      "ParentalRating":"18 anos",
+      "Description": "O mundo de Red Dead Redemption é uma versão ficcional da região oeste dos Estados Unidos e do noroeste do México,[11] se passando na 'era dos vaqueiros [que está] chegando ao fim'. O mapa de jogo é dividido em três regiões: New Austin e West Elizabeth no Estados Unidos, e Nuevo Paraíso no México. New Austin é o último remanescente do Velho Oeste a ser mapeado, conquistado e povoado, porém com enormes áreas ainda habitadas por foras da lei e animais selvagens."
+
+
+    },
+    {
+      "id": 9,
+      "name": "Horizon Zero Dawn",
+      "price": 115.8,
+      "score": 290,
+      "image": "https://images-americanas.b2w.io/produtos/01/00/item/130836/1/130836199_1GG.jpg",
+      "banner":"https://britgamer.s3.eu-west-1.amazonaws.com/styles/full_width_image/s3/2020-03/horizon-zero-dawn-banner.jpg?itok=vRO_YgwA",
+      "developer_name":"Sony Interactive Entertainment",
+      "categories": "RPG de ação",
+      "ParentalRating":"14 anos",
+      "Description": "Horizon Zero Dawn acontece a mil anos no futuro em um mundo pós-apocalíptico onde criaturas mecanizadas colossais dominaram o mundo, e vagam em uma paisagem fora do controle da humanidade. Ao longo do tempo, a evolução humana regrediu até uma sociedade tribal de caçadores e coletores que sobrevive por entre florestas imensas, cordilheiras imponentes e as ruínas atmosféricas de uma civilização antiga – enquanto as máquinas selvagens se tornaram cada vez mais poderosas e agressivas. O jogador controla Aloy, uma caçadora que utiliza a velocidade, esperteza e agilidade para permanecer viva e proteger sua tribo contra a força, o tamanho e o poder bruto das máquinas."
+
+    },
+    {
+      "id": 10,
+      "name": "Cyberpunk 2077",
+      "price": 179.91,
+      "score": 50,
+      "image": "https://images.tcdn.com.br/img/img_prod/591073/pre_venda_jogo_cyberpunk_2077_ps4_9305_1_20200507114432.jpg",
+      "banner":"https://www.jornadageek.com.br/wp-content/uploads/2020/06/Cyberpunk-2077.jpg",
+      "developer_name":"CD PROJEKT S.A",
+      "categories": "RPG de ação, Tiro em primeira pessoa",
+      "ParentalRating":"18 anos",
+      "Description": "Night City é uma megacidade americana localizada no Estado Livre da Califórnia do Norte, controlada por corporações – legislações locais e nacionais não têm efeito na região. Existe um conflito interno constante entre gangues e outras entidades que procuram dominar a cidade. Night City depende da robótica para todos os aspectos diários como coleta de resíduos, manutenção e transportes públicos.[36] A sua identidade visual é resultado de quatro eras de austero Entropismo, Brega colorido, opulento Neo-Brega e Neo-Militarismo forçado.[37] A internet é administrada pelo exército e corporações."
+
+    }
+  ]  
+}
