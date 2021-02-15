@@ -1,6 +1,5 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import { Product } from '../dtos/types';
-import { useCart } from './cart';
 
 interface favoritesContextData {
     addProductInFavorites(product: Product): void;

@@ -30,7 +30,7 @@ const CartPage: React.FC = () => {
                                         <Quantity>{product.quantity}</Quantity>
                                         <SubtotalPrice>
                                             <h5>{formatValue(product.product.price * product.quantity)}</h5>
-                                            <h6>{formatValue(product.product.price)} unit.</h6>
+                                            <h6>{formatValue(product.product.price * 1)} unit.</h6>
                                         </SubtotalPrice>
                                     </Info>
 
