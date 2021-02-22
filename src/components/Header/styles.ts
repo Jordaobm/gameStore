@@ -6,9 +6,9 @@ export const Container = styled.div`
    width:100%;
    padding:20px 2%;
    
-   /* background-color:red;  */
+   background-color:transparent; 
 `;
-export const Content = styled.div`
+export const HeaderDesktop = styled.div`
     width:100%;
     max-width:1120px;
     margin:0 auto;
@@ -18,10 +18,26 @@ export const Content = styled.div`
     align-items:center;
     
     @media(max-width: 500px){
+    display:none;
+
        flex-direction:column;
     }
-
 `;
+
+export const HeaderMobile = styled.div`
+    display:none;
+    @media(max-width: 500px){
+        display:block;
+    }
+`;
+
+export const Content = styled.div`
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+`;
+
 export const Logo = styled(Link)`
     text-decoration:none;
     color:#000;
@@ -52,12 +68,12 @@ export const Icons = styled.div`
     @media(max-width: 500px){
         margin-top:15px;
         flex-direction:column;
-        justify-content:centere;
+        justify-content:center;
     }
 `;
 
 interface MyLinkDivProps extends ButtonHTMLAttributes<MyLinkDivProps> {
-    active?:boolean;
+    active?: boolean;
 }
 
 export const MyLinkDiv = styled.button<MyLinkDivProps>`
@@ -73,7 +89,7 @@ export const MyLinkDiv = styled.button<MyLinkDivProps>`
     color: #363636;
     padding: 8px 20px;
 
-    ${props=>props.active && css`
+    ${props => props.active && css`
         border-bottom:4px solid #0172ce;
          a {
 
