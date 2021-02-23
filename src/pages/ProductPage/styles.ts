@@ -137,6 +137,8 @@ export const Buy = styled.div`
         justify-content:center;
         align-items:center;
         text-align:center;
+        display:flex;
+        flex-direction:column;
     }  
     
 `;

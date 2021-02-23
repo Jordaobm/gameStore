@@ -70,6 +70,16 @@ const Header: React.FC = () => {
                         <MyLinkDiv active={match.path === '/games'}><MyLink to='/games' >Games</MyLink></MyLinkDiv>
                         <MyLinkDiv active={match.path === '/favorites'}><MyLink to='/favorites' >Favoritos</MyLink></MyLinkDiv>
                     </Categories>
+                    <Icons>
+                    <Link to="/cart" children={
+                        <FlexCart>
+                            <FiShoppingCart size={22} />
+                            {cart.products.length > 0 && <CircleItensCart>
+                                <SpanNumber>{cart.products.length}</SpanNumber>
+                            </CircleItensCart>}
+                        </FlexCart>
+                    } />
+                </Icons>
                 </motion.nav>
 
             </HeaderMobile>

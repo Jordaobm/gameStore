@@ -10,6 +10,7 @@ import { useCart } from '../../hooks/cart';
 import { FiStar } from 'react-icons/fi';
 import { AiFillStar } from 'react-icons/ai';
 import { useFavorites } from '../../hooks/favorites';
+import Placeholder from '../../components/Placeholder';
 
 interface RouteParams {
     product: string;
@@ -27,6 +28,7 @@ const ProductPage: React.FC = () => {
     const [product, setProduct] = useState<Product>();
     const [buttonAddProductInCartStyle, setButtonAddProductInCartStyle] = useState<ProductData>({ existInCart: false, quantity: 0 });
     const [isFavorite, setIsFavorite] = useState(false);
+    const [loading, setLoading] = useState(true);
 
 
 
@@ -76,40 +78,39 @@ const ProductPage: React.FC = () => {
     return (
         <>
             <Header />
-
-            <Container>
-                <GameBanner>
-                    <Banner src={product?.banner} />
-                </GameBanner>
-                <Content>
-                    <Image src={product?.image} />
-                    <GameInfo>
-                        <div>
-                            <Name><h1>{product?.name}</h1> <Star onClick={() => handleAddGameInFavorites(product, !isFavorite)}>{isFavorite ? <AiFillStar color="yellow" size={30} /> : <FiStar size={30} />}</Star></Name>
-
-
-                            <DeveloperAndCategory>
-                                <Developer>‪{product?.developer_name}</Developer>
-                                <Category>{product?.categories}‬</Category>
-                            </DeveloperAndCategory>
-                        </div>
-                        {product && <ParentalRating productParentalRating={product.ParentalRating} />}
-                        <Description>{product?.Description}</Description>
-                    </GameInfo>
-                    <Buy>
-                        <Price>{product && formatValue(product.price)}</Price>
-
-                        {buttonAddProductInCartStyle.existInCart ? <Button buttonStyle={buttonAddProductInCartStyle.existInCart} onClick={() => handleAddProductInCart(product)}>Produto Adicionado ({buttonAddProductInCartStyle.quantity})</Button> : <Button buttonStyle={false} onClick={() => handleAddProductInCart(product)}>Adicionar ao carrinho!</Button>}
-                        <KeepBuying><Link to='/games'>Continue comprando</Link></KeepBuying>
-
-                        <GoToCart><Link to="/cart">Ir para o carrinho!</Link>  </GoToCart>
-                    </Buy>
-                </Content>
+            {!loading ?
+                <Container>
+                    <GameBanner>
+                        <Banner src={product?.banner} />
+                    </GameBanner>
+                    <Content>
+                        <Image src={product?.image} />
+                        <GameInfo>
+                            <div>
+                                <Name><h1>{product?.name}</h1> <Star onClick={() => handleAddGameInFavorites(product, !isFavorite)}>{isFavorite ? <AiFillStar color="yellow" size={30} /> : <FiStar size={30} />}</Star></Name>
 
 
+                                <DeveloperAndCategory>
+                                    <Developer>‪{product?.developer_name}</Developer>
+                                    <Category>{product?.categories}‬</Category>
+                                </DeveloperAndCategory>
+                            </div>
+                            {product && <ParentalRating productParentalRating={product.ParentalRating} />}
+                            <Description>{product?.Description}</Description>
+                        </GameInfo>
+                        <Buy>
+                            <Price>{product && formatValue(product.price)}</Price>
 
+                            {buttonAddProductInCartStyle.existInCart ? <Button buttonStyle={buttonAddProductInCartStyle.existInCart} onClick={() => handleAddProductInCart(product)}>Produto Adicionado ({buttonAddProductInCartStyle.quantity})</Button> : <Button buttonStyle={false} onClick={() => handleAddProductInCart(product)}>Adicionar ao carrinho!</Button>}
+                            <KeepBuying><Link to='/games'>Continue comprando</Link></KeepBuying>
 
-            </Container>
+                            <GoToCart><Link to="/cart">Ir para o carrinho!</Link>  </GoToCart>
+                        </Buy>
+                    </Content>
+                </Container> :
+                <Placeholder/>
+            }
+
         </>
 
     )

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled(Link)`
+   
     padding:40px 20px;
     display:flex;
     flex-direction:column;
@@ -13,13 +14,10 @@ export const Container = styled(Link)`
     :hover{
         box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
     }
-    
 
 `;
 export const ImageContent = styled.div`
     width:180px;
-    
-
 `;
 
 export const ImageGame = styled.img`

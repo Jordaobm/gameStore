@@ -62,26 +62,8 @@ const Home: React.FC = () => {
                         dragging={false}
                         wheel={false}
                         transition={0.5}
-
                     />
                 </NewGames>
-
-                {/* <NewGames>
-                    <NewGamesTextAndAction>
-                        <h3>Em breve</h3>
-                        <h4>Visualizar todos</h4>
-                    </NewGamesTextAndAction>
-                    <NewGameScroll
-                        data={products.map(product => <CardGame product={product} key={product.id} />)}
-                        arrowLeft={<Arrow icon="left" />}
-                        arrowRight={<Arrow icon="rigth" />}
-                        alignCenter={false}
-                        dragging={false}
-                        wheel={false}
-                        transition={1}
-
-                    />
-                </NewGames> */}
             </Container>
 
 

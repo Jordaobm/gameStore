@@ -101,6 +101,7 @@ export const NewGameScroll = styled(ScrollMenu)`
     }
     
 `;
+
 export const NewGameCard = styled.div`
     margin:50px 0;
 `;
