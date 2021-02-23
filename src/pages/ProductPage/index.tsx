@@ -40,15 +40,14 @@ const ProductPage: React.FC = () => {
     useEffect(() => {
         api.get(`/products/${params.product}`).then(response => {
             setProduct(response.data);
-            console.log(product?.banner)
-            if (product?.banner !== undefined) {
-                setTimeout(() => {
-                    setLoading(false)
-                }, 1000)
-            }
-
         })
-    }, [params.product, product?.banner, product?.image]);
+    }, [params.product]);
+
+    if (product?.image) {
+        setTimeout(() => {
+            setLoading(false)
+        }, 500)
+    }
 
     const handleAddProductInCart = useCallback((product?: Product) => {
 
@@ -87,7 +86,7 @@ const ProductPage: React.FC = () => {
         }
     }, [addProductInFavorites, removeProductTheFavorites, isFavorite])
 
-   
+
 
     return (
         <>

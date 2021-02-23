@@ -23,10 +23,6 @@ export const LinkGame = styled.div`
    
 `;
 
-export const Image = styled.img`
-    width:180px;
-`;
-
 export const GameInfo = styled.div`
     margin-top:5px;
     display:flex;

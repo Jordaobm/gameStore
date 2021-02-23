@@ -62,8 +62,6 @@ const CartProvider: React.FC = ({ children }) => {
     const removeProductTheCart = useCallback((product: Product) => {
         const existProductInTheCart = cart.products.findIndex(index => index.product.id === product.id);
 
-        console.log(existProductInTheCart)
-
         if (existProductInTheCart >= 0) {
 
             cart.products[existProductInTheCart].quantity > 1 ? cart.products[existProductInTheCart].quantity-- : cart.products.splice(existProductInTheCart, 1)

@@ -121,14 +121,6 @@ export const SubtotalPrice = styled.div`
     }
    
 `;
-
-export const RemoveGameTheCart = styled.button`
-    font-size: 15px;
-    color: #0067b8;
-    border:0;
-    background-color:transparent;
-    cursor: pointer;
-`;
 export const Resume = styled.div`
     width:30%;
     margin-left:50px;

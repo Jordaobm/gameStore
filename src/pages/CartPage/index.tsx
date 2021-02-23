@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import ParentalRating from '../../components/ParentalRating';
 import { useCart } from '../../hooks/cart';
 import { formatValue } from '../../utils/formatValue';
-import { Container, Content, ButtonFinishOrder, ListGamesInCard, OrderSummary, CardGame, GameInfo, Image, Name, Quantity, SubtotalPrice, RemoveGameTheCart, Info, ItensAndTotal, Itens, Total, ValueFrete, Frete, FretePrice, TotalOrder, ContentCardGames, Resume, KeepBuying, AlterQuantity, ButtonAddProductQuantity, ButtonRemoveProductQuantity } from './styles';
+import { Container, Content, ButtonFinishOrder, ListGamesInCard, OrderSummary, CardGame, GameInfo, Image, Name, Quantity, SubtotalPrice, Info, ItensAndTotal, Itens, Total, ValueFrete, Frete, FretePrice, TotalOrder, ContentCardGames, Resume, KeepBuying, AlterQuantity, ButtonAddProductQuantity, ButtonRemoveProductQuantity } from './styles';
 import { Product } from '../../dtos/types';
 import { motion } from 'framer-motion';
 
@@ -36,8 +36,8 @@ const CartPage: React.FC = () => {
 
                     <ContentCardGames>
                         {cart.products.map(product => (
-                            <motion.div whileHover={{ transition: { duration: 1 } }} initial="hidden" animate="visible" variants={variants}>
-                                <CardGame key={product.product.id}>
+                            <motion.div key={product.product.id} whileHover={{ transition: { duration: 1 } }} initial="hidden" animate="visible" variants={variants}>
+                                <CardGame >
 
                                     <Image src={product.product.image} />
                                     <GameInfo>
