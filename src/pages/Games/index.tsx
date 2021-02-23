@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Header from '../../components/Header';
+import PlaceholderGamesLoad from '../../components/PlaceholderGamesLoad';
 import { Product } from '../../dtos/types';
 import { api } from '../../services/api';
 import { formatValue } from '../../utils/formatValue';
 import { Container, Content, Seach, ListGames, PriceOrder, ScoreOrder, AlphabeticalOrder, Filter, List, CardGame, Image, Price, Name, GameInfo, LinkGame, Score, SearchContent, SearchInput } from './styles';
+import { motion } from 'framer-motion';
 
 const Games: React.FC = () => {
 
@@ -11,11 +13,15 @@ const Games: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [filter, setFilter] = useState<Product[]>(products);
     const [search, setSearch] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         api.get<Product[]>('/products').then(response => {
             setProducts(response.data)
             setFilter(response.data);
+            setTimeout(() => {
+                setLoading(false);
+            }, 500)
         })
     }, [])
 
@@ -23,18 +29,25 @@ const Games: React.FC = () => {
     const handleSelectFilter = useCallback((select: string) => {
         setSearch([])
         setFilterStyle(select);
+        setLoading(true)
         switch (select) {
             case 'Ordenados por preço':
                 const organizingProducts = products.sort((product1, product2) => {
                     return product1.price - product2.price;
                 })
                 setFilter(organizingProducts);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 500)
                 break;
             case 'Ordenados por popularidade':
                 const organizingProductsScore = products.sort((product1, product2) => {
                     return product2.score - product1.score;
                 })
                 setFilter(organizingProductsScore);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 500)
                 break;
             case 'Em ordem alfabética':
                 const organizingProductsAlphabetical = products.sort((product1, product2) => {
@@ -43,6 +56,9 @@ const Games: React.FC = () => {
                     return product1LowCase === product2LowCase ? 0 : product1LowCase > product2LowCase ? 1 : -1;
                 })
                 setFilter(organizingProductsAlphabetical);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 500)
                 break;
             default:
                 break;
@@ -53,18 +69,28 @@ const Games: React.FC = () => {
     }, [products])
 
     const handleInputSeach = useCallback((search: string) => {
+        setLoading(true);
         if (search === '') {
             setSearch([])
+            setLoading(false)
             return;
         }
         const searchProduct = products.filter(product => product.name.startsWith(search));
         console.log(searchProduct);
         setSearch(searchProduct)
+        setTimeout(() => {
+            setLoading(false);
+        }, 500)
     }, [products])
 
-    const focusedSearchInput = useCallback(()=>{
+    const focusedSearchInput = useCallback(() => {
         setFilterStyle('')
-    },[])
+    }, [])
+
+    const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    }
 
     return (
         <Container>
@@ -85,29 +111,47 @@ const Games: React.FC = () => {
                     </SearchContent>
                     <List>
 
-                        {search.length > 0 ? search.map(product => (
-                            <CardGame key={product.id}>
-                                <LinkGame to={`/product/${product.id}`}>
-                                    <Image src={product.image} />
-                                    <GameInfo>
-                                        <Name>{product.name}</Name>
-                                        <Score>Pontuação na loja: {product.score}</Score>
-                                        <Price>{formatValue(product.price)}</Price>
-                                    </GameInfo>
-                                </LinkGame>
-                            </CardGame>
-                        )) : filter.map(product => (
-                            <CardGame key={product.id}>
-                                <LinkGame to={`/product/${product.id}`}>
-                                    <Image src={product.image} />
-                                    <GameInfo>
-                                        <Name>{product.name}</Name>
-                                        <Score>Pontuação na loja: {product.score}</Score>
-                                        <Price>{formatValue(product.price)}</Price>
-                                    </GameInfo>
-                                </LinkGame>
-                            </CardGame>
-                        ))}
+                        {search.length > 0 ? search.map(product => {
+                            if (!loading) {
+                                return (
+                                    <CardGame key={product.id}>
+                                        <motion.div whileHover={{ transition: { duration: 1 } }} initial="hidden" animate="visible" variants={variants}>
+                                            <LinkGame to={`/product/${product.id}`}>
+                                                <Image src={product.image} />
+                                                <GameInfo>
+                                                    <Name>{product.name}</Name>
+                                                    <Score>Pontuação na loja: {product.score}</Score>
+                                                    <Price>{formatValue(product.price)}</Price>
+                                                </GameInfo>
+                                            </LinkGame>
+                                        </motion.div>
+                                    </CardGame>
+                                )
+                            } else {
+                                return <PlaceholderGamesLoad key={product.id} />
+                            }
+                        }) : filter.map(product => {
+                            if (!loading) {
+                                return (
+                                    <CardGame key={product.id}>
+                                        <motion.div whileHover={{ transition: { duration: 1 } }} initial="hidden" animate="visible" variants={variants}>
+
+                                            <LinkGame to={`/product/${product.id}`}>
+                                                <Image src={product.image} />
+                                                <GameInfo>
+                                                    <Name>{product.name}</Name>
+                                                    <Score>Pontuação na loja: {product.score}</Score>
+                                                    <Price>{formatValue(product.price)}</Price>
+                                                </GameInfo>
+                                            </LinkGame>
+                                        </motion.div>
+
+                                    </CardGame>
+                                )
+                            } else {
+                                return <PlaceholderGamesLoad key={product.id} />
+                            }
+                        })}
 
 
 

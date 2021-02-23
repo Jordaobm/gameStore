@@ -7,6 +7,7 @@ import { useCart } from '../../hooks/cart';
 import { formatValue } from '../../utils/formatValue';
 import { Container, Content, ButtonFinishOrder, ListGamesInCard, OrderSummary, CardGame, GameInfo, Image, Name, Quantity, SubtotalPrice, RemoveGameTheCart, Info, ItensAndTotal, Itens, Total, ValueFrete, Frete, FretePrice, TotalOrder, ContentCardGames, Resume, KeepBuying, AlterQuantity, ButtonAddProductQuantity, ButtonRemoveProductQuantity } from './styles';
 import { Product } from '../../dtos/types';
+import { motion } from 'framer-motion';
 
 const CartPage: React.FC = () => {
     const { cart, removeProductTheCart, addProductInCart } = useCart();
@@ -17,6 +18,12 @@ const CartPage: React.FC = () => {
     const removeQuantityProduct = useCallback((product: Product) => {
         removeProductTheCart(product);
     }, [removeProductTheCart])
+
+    const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    }
+
 
     return (
         <Container>
@@ -29,29 +36,31 @@ const CartPage: React.FC = () => {
 
                     <ContentCardGames>
                         {cart.products.map(product => (
-                            <CardGame key={product.product.id}>
+                            <motion.div whileHover={{ transition: { duration: 1 } }} initial="hidden" animate="visible" variants={variants}>
+                                <CardGame key={product.product.id}>
 
-                                <Image src={product.product.image} />
-                                <GameInfo>
-                                    <Info>
-                                        <Name>{product.product.name}</Name>
-                                        <Quantity>
-                                            {product.quantity}
-                                            <AlterQuantity>
-                                                <ButtonAddProductQuantity onClick={() => addQuantityProduct(product.product)}><FiPlus size={12} /></ButtonAddProductQuantity>
-                                                <ButtonRemoveProductQuantity onClick={() => removeQuantityProduct(product.product)}><FiMinus size={12} /></ButtonRemoveProductQuantity>
-                                            </AlterQuantity>
-                                        </Quantity>
-                                        <SubtotalPrice>
-                                            <h5>{formatValue(product.product.price * product.quantity)}</h5>
-                                            <h6>{formatValue(product.product.price * 1)} unit.</h6>
-                                        </SubtotalPrice>
-                                    </Info>
+                                    <Image src={product.product.image} />
+                                    <GameInfo>
+                                        <Info>
+                                            <Name>{product.product.name}</Name>
+                                            <Quantity>
+                                                {product.quantity}
+                                                <AlterQuantity>
+                                                    <ButtonAddProductQuantity onClick={() => addQuantityProduct(product.product)}><FiPlus size={12} /></ButtonAddProductQuantity>
+                                                    <ButtonRemoveProductQuantity onClick={() => removeQuantityProduct(product.product)}><FiMinus size={12} /></ButtonRemoveProductQuantity>
+                                                </AlterQuantity>
+                                            </Quantity>
+                                            <SubtotalPrice>
+                                                <h5>{formatValue(product.product.price * product.quantity)}</h5>
+                                                <h6>{formatValue(product.product.price * 1)} unit.</h6>
+                                            </SubtotalPrice>
+                                        </Info>
 
-                                    <ParentalRating productParentalRating={product.product.ParentalRating} />
+                                        <ParentalRating productParentalRating={product.product.ParentalRating} />
 
-                                </GameInfo>
-                            </CardGame>
+                                    </GameInfo>
+                                </CardGame>
+                            </motion.div>
                         ))}
 
 

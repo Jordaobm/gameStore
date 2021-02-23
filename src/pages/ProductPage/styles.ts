@@ -68,8 +68,8 @@ export const GameInfo = styled.div`
 export const Star = styled.div`
     position:relative;
     top:3px;
-    margin-left:10px;
     cursor: pointer;
+    margin-left:5px;
 
     svg {
         color:#000;
@@ -115,7 +115,7 @@ export const ParentalRating = styled.div`
     color: #0067b8;
 `;
 export const Description = styled.div`
-padding-right:10px;
+    padding-right:10px;
     font-size: 15px;
     color: #000;
 `;
@@ -242,4 +242,14 @@ export const KeepBuying = styled.div`
         font-size: 15px;
         color: #fff;
     }
+`;
+
+export const ContentFavorites = styled.div`
+    display:flex;
+    align-items:center;
+`;
+
+export const TextFavorites = styled.p`
+    font-size: 15px;
+    color: #000;
 `;

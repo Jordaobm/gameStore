@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Header from '../../components/Header';
-import { Container, Content, GameBanner, Image, GameInfo, Name, Category, Description, Developer, Price, Button, Buy, DeveloperAndCategory, Banner, KeepBuying, GoToCart, Star } from './styles';
+import { Container, Content, TextFavorites, GameBanner, Image, GameInfo, Name, Category, Description, Developer, Price, Button, Buy, DeveloperAndCategory, Banner, KeepBuying, GoToCart, Star, ContentFavorites } from './styles';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { api } from '../../services/api';
 import { Product } from '../../dtos/types';
@@ -10,7 +10,7 @@ import { useCart } from '../../hooks/cart';
 import { FiStar } from 'react-icons/fi';
 import { AiFillStar } from 'react-icons/ai';
 import { useFavorites } from '../../hooks/favorites';
-import Placeholder from '../../components/Placeholder';
+import Placeholder from '../../components/PlaceholderProductPage';
 import { motion } from 'framer-motion';
 
 interface RouteParams {
@@ -41,10 +41,10 @@ const ProductPage: React.FC = () => {
         api.get(`/products/${params.product}`).then(response => {
             setProduct(response.data);
             console.log(product?.banner)
-            if(product?.banner !== undefined){
-              setTimeout(()=>{
-                setLoading(false)
-              }, 1000)
+            if (product?.banner !== undefined) {
+                setTimeout(() => {
+                    setLoading(false)
+                }, 1000)
             }
 
         })
@@ -87,6 +87,8 @@ const ProductPage: React.FC = () => {
         }
     }, [addProductInFavorites, removeProductTheFavorites, isFavorite])
 
+   
+
     return (
         <>
             <Header />
@@ -100,7 +102,7 @@ const ProductPage: React.FC = () => {
                             <Image src={product?.image} />
                             <GameInfo>
                                 <div>
-                                    <Name><h1>{product?.name}</h1> <Star onClick={() => handleAddGameInFavorites(product, !isFavorite)}>{isFavorite ? <AiFillStar color="yellow" size={30} /> : <FiStar size={30} />}</Star></Name>
+                                    <Name><h1>{product?.name}</h1></Name>
 
 
                                     <DeveloperAndCategory>
@@ -109,6 +111,12 @@ const ProductPage: React.FC = () => {
                                     </DeveloperAndCategory>
                                 </div>
                                 {product && <ParentalRating productParentalRating={product.ParentalRating} />}
+
+                                <ContentFavorites>
+                                    <TextFavorites>Adicionar aos favoritos</TextFavorites>
+                                    <Star onClick={() => handleAddGameInFavorites(product, !isFavorite)}>{isFavorite ? <AiFillStar color="yellow" size={23} /> : <FiStar size={23} />}</Star>
+                                </ContentFavorites>
+
                                 <Description>{product?.Description}</Description>
                             </GameInfo>
                             <Buy>
