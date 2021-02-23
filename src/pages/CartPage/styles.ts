@@ -52,9 +52,11 @@ export const ContentCardGames = styled.div`
 
 
 export const CardGame = styled.div`
-   display:flex;
+    display:flex;
     align-items:center;
     margin-bottom:50px;
+    border-top:1px solid rgba(0,0,0,.2);
+    padding:20px 0;
 
     @media(max-width: 500px){
        flex-direction:column;
@@ -93,7 +95,11 @@ export const Name = styled.div`
     line-height: 24px;
     font-weight: 600;
 `;
-export const Quantity = styled.div``;
+export const Quantity = styled.div`
+    display:flex;
+    justify-content:center;
+    align-items:center;
+`;
 export const SubtotalPrice = styled.div`
     width:20%;
     display:flex;
@@ -225,4 +231,32 @@ export const KeepBuying = styled.div`
         background-color:transparent;
         cursor: pointer;
     }
+`;
+export const AlterQuantity = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-left:10px;
+`;
+
+export const ButtonAddProductQuantity = styled.button`
+    cursor: pointer;
+    border:0;
+    margin-bottom:5px;
+    background-color:transparent;
+
+    :hover{
+        color:#388f10;
+    }
+`;
+export const ButtonRemoveProductQuantity = styled.button`
+     cursor: pointer;
+    border:0;
+    background-color:transparent;
+
+    :hover{
+        color:red;
+    }
+
 `;

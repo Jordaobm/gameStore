@@ -94,15 +94,10 @@ export const MyLinkDiv = styled.button<MyLinkDivProps>`
          a {
 
             color:#0172ce;
-         }
-;
+         };
     `}
-
     
 `;
-
-
-
 
 
 export const MyLink = styled(Link)`
@@ -110,6 +105,11 @@ export const MyLink = styled(Link)`
     
     color:black;
     text-decoration:none;
+    transition:0.2s;
+
+    :hover{
+        color:#0172ce;
+    }
 `;
 
 export const FlexCart = styled.div`

@@ -4,7 +4,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { FiMenu } from 'react-icons/fi';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { useCart } from '../../hooks/cart';
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Header: React.FC = () => {
     const match = useRouteMatch();

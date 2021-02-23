@@ -7,6 +7,7 @@ import Arrow from '../../components/Arrow';
 import { api } from '../../services/api';
 import { Product } from '../../dtos/types';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {
 
@@ -31,40 +32,47 @@ const Home: React.FC = () => {
         })
     }, [])
 
+    const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    }
+
     return (
         <>
             <Header />
+            <motion.div whileHover={{ transition: { duration: 1 } }} initial="hidden" animate="visible" variants={variants}>
 
-            <BackgroundParallax>
-                <Parallax blur={3} bgImageStyle={{ opacity: '.5', backgroundColor: '#000' }} style={{ height: '88vh' }} bgImage={featuredGame?.banner} strength={200}>
+                <BackgroundParallax>
+                    <Parallax blur={3} bgImageStyle={{ opacity: '.5', backgroundColor: '#000' }} style={{ height: '88vh' }} bgImage={featuredGame?.banner} strength={200}>
 
-                    <FeaturedText>
-                        <FeaturedInfo>
-                            <h3>Destaque da semana</h3>
-                            <h4>{featuredGame?.name}</h4>
-                        </FeaturedInfo>
-                    </FeaturedText>
+                        <FeaturedText>
+                            <FeaturedInfo>
+                                <h3>Destaque da semana</h3>
+                                <h4>{featuredGame?.name}</h4>
+                            </FeaturedInfo>
+                        </FeaturedText>
 
 
-                </Parallax>
-            </BackgroundParallax>
-            <Container>
-                <NewGames>
-                    <NewGamesTextAndAction>
-                        <h3>Novos Jogos</h3>
-                        <Link to="/games">Visualizar todos</Link>
-                    </NewGamesTextAndAction>
-                    <NewGameScroll
-                        data={products.map(product => <CardGame product={product} key={product.id} />)}
-                        arrowLeft={<Arrow icon="left" />}
-                        arrowRight={<Arrow icon="rigth" />}
-                        alignCenter={false}
-                        dragging={false}
-                        wheel={false}
-                        transition={0.5}
-                    />
-                </NewGames>
-            </Container>
+                    </Parallax>
+                </BackgroundParallax>
+                <Container>
+                    <NewGames>
+                        <NewGamesTextAndAction>
+                            <h3>Novos Jogos</h3>
+                            <Link to="/games">Visualizar todos</Link>
+                        </NewGamesTextAndAction>
+                        <NewGameScroll
+                            data={products.map(product => <CardGame product={product} key={product.id} />)}
+                            arrowLeft={<Arrow icon="left" />}
+                            arrowRight={<Arrow icon="rigth" />}
+                            alignCenter={false}
+                            dragging={false}
+                            wheel={false}
+                            transition={0.5}
+                        />
+                    </NewGames>
+                </Container>
+            </motion.div>
 
 
         </>

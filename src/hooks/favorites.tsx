@@ -34,8 +34,6 @@ const FavoritesContextProvider: React.FC = ({ children }) => {
         setFavorites(filterFavorites)
     }, [favorites])
 
-    console.log(favorites);
-
     localStorage.setItem('@GameStore:favorites', JSON.stringify(favorites))
 
     return (

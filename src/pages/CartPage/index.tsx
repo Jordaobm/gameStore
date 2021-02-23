@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { FiMinus, FiPlus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import ParentalRating from '../../components/ParentalRating';
 import { useCart } from '../../hooks/cart';
 import { formatValue } from '../../utils/formatValue';
-import { Container, Content, ButtonFinishOrder, ListGamesInCard, OrderSummary, CardGame, GameInfo, Image, Name, Quantity, SubtotalPrice, RemoveGameTheCart, Info, ItensAndTotal, Itens, Total, ValueFrete, Frete, FretePrice, TotalOrder, ContentCardGames, Resume, KeepBuying } from './styles';
-
+import { Container, Content, ButtonFinishOrder, ListGamesInCard, OrderSummary, CardGame, GameInfo, Image, Name, Quantity, SubtotalPrice, RemoveGameTheCart, Info, ItensAndTotal, Itens, Total, ValueFrete, Frete, FretePrice, TotalOrder, ContentCardGames, Resume, KeepBuying, AlterQuantity, ButtonAddProductQuantity, ButtonRemoveProductQuantity } from './styles';
+import { Product } from '../../dtos/types';
 
 const CartPage: React.FC = () => {
-    const { cart, removeProductTheCart } = useCart();
+    const { cart, removeProductTheCart, addProductInCart } = useCart();
+
+    const addQuantityProduct = useCallback((product: Product) => {
+        addProductInCart(product);
+    }, [addProductInCart])
+    const removeQuantityProduct = useCallback((product: Product) => {
+        removeProductTheCart(product);
+    }, [removeProductTheCart])
 
     return (
         <Container>
@@ -27,7 +35,13 @@ const CartPage: React.FC = () => {
                                 <GameInfo>
                                     <Info>
                                         <Name>{product.product.name}</Name>
-                                        <Quantity>{product.quantity}</Quantity>
+                                        <Quantity>
+                                            {product.quantity}
+                                            <AlterQuantity>
+                                                <ButtonAddProductQuantity onClick={() => addQuantityProduct(product.product)}><FiPlus size={12} /></ButtonAddProductQuantity>
+                                                <ButtonRemoveProductQuantity onClick={() => removeQuantityProduct(product.product)}><FiMinus size={12} /></ButtonRemoveProductQuantity>
+                                            </AlterQuantity>
+                                        </Quantity>
                                         <SubtotalPrice>
                                             <h5>{formatValue(product.product.price * product.quantity)}</h5>
                                             <h6>{formatValue(product.product.price * 1)} unit.</h6>
@@ -35,7 +49,6 @@ const CartPage: React.FC = () => {
                                     </Info>
 
                                     <ParentalRating productParentalRating={product.product.ParentalRating} />
-                                    <RemoveGameTheCart onClick={()=>removeProductTheCart(product.product)}>Remover</RemoveGameTheCart>
 
                                 </GameInfo>
                             </CardGame>
