@@ -64,16 +64,19 @@ const ProductPage: React.FC = () => {
   };
 
   useEffect(() => {
-    api.get(`/products/${params.product}`).then(response => {
+    async function loadProducts() {
+      const response = await api.get<Product>(`/products/${params.product}`);
       setProduct(response.data);
-    });
-  }, [params.product]);
+      const loadBanner = await response.data.banner;
+      if (loadBanner) {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      }
+    }
 
-  if (product?.image) {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }
+    loadProducts();
+  }, [params.product]);
 
   const handleAddProductInCart = useCallback(
     (product?: Product) => {
@@ -174,10 +177,14 @@ const ProductPage: React.FC = () => {
                   </Star>
                 </ContentFavorites>
 
-                <Description>{product?.Description}</Description>
+                <Description>
+                  <p>{product?.Description}</p>
+                </Description>
               </GameInfo>
               <Buy>
-                <Price>{product && formatValue(product.price)}</Price>
+                <Price>
+                  <p>{product && formatValue(product.price)}</p>
+                </Price>
 
                 {buttonAddProductInCartStyle.existInCart ? (
                   <Button

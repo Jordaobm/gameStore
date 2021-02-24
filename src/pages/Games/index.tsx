@@ -87,6 +87,10 @@ const Games: React.FC = () => {
           }, 500);
           break;
         default:
+          setFilter(products);
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
           break;
       }
     },

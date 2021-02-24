@@ -17,6 +17,7 @@ import {
   CircleItensCart,
   SpanNumber,
   FlexCart,
+  IconMenu,
 } from './styles';
 
 const Header: React.FC = () => {
@@ -25,6 +26,7 @@ const Header: React.FC = () => {
   const [showCategoriesHeaderMobile, setShowCategoriesHeaderMobile] = useState(
     'none',
   );
+
   const showOrHideCategories = useCallback(() => {
     if (showCategoriesHeaderMobile === 'none') {
       setShowCategoriesHeaderMobile('flex');
@@ -64,7 +66,10 @@ const Header: React.FC = () => {
             to="/cart"
             children={
               <FlexCart>
-                <FiShoppingCart size={22} />
+                <FiShoppingCart
+                  size={22}
+                  color={match.url === '/cart' ? '#0172ce' : '#000'}
+                />
                 {cart.products.length > 0 && (
                   <CircleItensCart>
                     <SpanNumber>{cart.products.length}</SpanNumber>
@@ -81,7 +86,9 @@ const Header: React.FC = () => {
           <Logo to="/">
             <p>GameStore</p>
           </Logo>
-          <FiMenu size={22} onClick={showOrHideCategories} />
+          <IconMenu>
+            <FiMenu size={22} onClick={showOrHideCategories} />
+          </IconMenu>
         </Content>
 
         <motion.nav
@@ -104,7 +111,10 @@ const Header: React.FC = () => {
               to="/cart"
               children={
                 <FlexCart>
-                  <FiShoppingCart size={22} />
+                  <FiShoppingCart
+                    size={22}
+                    color={match.url === '/cart' ? '#0172ce' : '#000'}
+                  />
                   {cart.products.length > 0 && (
                     <CircleItensCart>
                       <SpanNumber>{cart.products.length}</SpanNumber>

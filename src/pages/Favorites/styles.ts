@@ -16,7 +16,9 @@ export const List = styled.div``;
 
 export const NotFavorite = styled.div`
   margin-top: 20px;
-  color: #060606;
-  font-size: 16px;
-  font-weight: 400;
+  p {
+    color: #060606;
+    font-size: 16px;
+    font-weight: 400;
+  }
 `;

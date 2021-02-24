@@ -46,6 +46,12 @@ export const ContentImage = styled.div`
     max-width: 500px;
     height: 500px;
   }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    max-width: 280px;
+    height: 280px;
+  }
 `;
 export const ContentDescription = styled.div`
   padding: 0 30px;

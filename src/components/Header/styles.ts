@@ -45,6 +45,19 @@ export const Logo = styled(Link)`
     font-size: 20px;
   }
 `;
+
+export const IconMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  cursor: pointer;
+
+  :hover {
+    color: #0172ce;
+  }
+`;
+
 export const Categories = styled.div`
   display: flex;
   @media (max-width: 500px) {

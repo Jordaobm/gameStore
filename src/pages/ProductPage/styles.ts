@@ -110,8 +110,11 @@ export const ParentalRating = styled.div`
 `;
 export const Description = styled.div`
   padding-right: 10px;
-  font-size: 15px;
-  color: #000;
+  p {
+    padding-right: 10px;
+    font-size: 15px;
+    color: #000;
+  }
 `;
 
 export const DeveloperAndCategory = styled.div`
@@ -144,8 +147,11 @@ export const GoToCart = styled.div`
 `;
 
 export const Price = styled.div`
-  font-size: 30px;
-  font-weight: 600;
+  p {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+  }
 `;
 
 interface ButtonProps {

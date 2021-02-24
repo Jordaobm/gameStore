@@ -17,7 +17,10 @@ export const Container = styled.div<ContainerProps>`
       background-color: ${props.color};
     `}
 `;
-export const Value = styled.p`
-  color: #fff;
-  font-size: 14px;
+export const Value = styled.div`
+  p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
 `;

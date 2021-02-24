@@ -164,16 +164,20 @@ export const GameInfo = styled.div`
   text-align: center;
 `;
 export const Name = styled.p`
-  font-weight: 300;
+  font-weight: 600;
   font-size: 15px;
 `;
 export const Price = styled.p`
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
+  transition: 0.2s;
+  :hover {
+    color: #46b314;
+  }
 `;
 export const Score = styled.p`
-  font-weight: 200;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 13px;
   color: #0172ce;
 `;
 export const SearchContent = styled.div`

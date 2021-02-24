@@ -20,7 +20,9 @@ const Favorites: React.FC = () => {
               <CardGame key={product.id} product={product} />
             ))
           ) : (
-            <NotFavorite>Você não tem nenhum jogo favorito</NotFavorite>
+            <NotFavorite>
+              <p>Você não tem nenhum jogo favorito</p>
+            </NotFavorite>
           )}
         </List>
       </Content>

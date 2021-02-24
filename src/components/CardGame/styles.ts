@@ -31,12 +31,21 @@ export const GameInfo = styled.div`
   justify-content: center;
 `;
 export const GameTitle = styled.div`
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  color: #363636;
+  h3 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #363636;
+  }
 `;
 export const GamePrice = styled.div`
-  color: #363636;
-  font-size: 1rem;
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #363636;
+    transition: 0.2s;
+
+    :hover {
+      color: #46b314;
+    }
+  }
 `;

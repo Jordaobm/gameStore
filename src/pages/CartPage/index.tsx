@@ -78,10 +78,10 @@ const CartPage: React.FC = () => {
                   <GameInfo>
                     <Info>
                       <Name to={`/product/${product.product.id}`}>
-                        {product.product.name}
+                        <h1>{product.product.name}</h1>
                       </Name>
                       <Quantity>
-                        {product.quantity}
+                        <p>{product.quantity}</p>
                         <AlterQuantity>
                           <ButtonAddProductQuantity
                             onClick={() => addQuantityProduct(product.product)}
@@ -98,18 +98,16 @@ const CartPage: React.FC = () => {
                         </AlterQuantity>
                       </Quantity>
                       <SubtotalPrice>
-                        <h5>
+                        <p>
                           {formatValue(
                             product.product.price * product.quantity,
                           )}
-                        </h5>
-                        <h6>{formatValue(product.product.price * 1)} unit.</h6>
+                        </p>
+                        <span>
+                          {formatValue(product.product.price * 1)} unit.
+                        </span>
                       </SubtotalPrice>
                     </Info>
-
-                    <ParentalRating
-                      productParentalRating={product.product.ParentalRating}
-                    />
                   </GameInfo>
                 </CardGame>
               </motion.div>
@@ -120,25 +118,37 @@ const CartPage: React.FC = () => {
             <OrderSummary>
               <h3>Resumo do pedido</h3>
               <ItensAndTotal>
-                <Itens>{`Itens(${cart.products.length})`}</Itens>
-                <Total>{formatValue(cart.OrderSubtotal)}</Total>
+                <Itens>
+                  <p>{`Itens(${cart.products.length})`}</p>
+                </Itens>
+                <Total>
+                  <p>{formatValue(cart.OrderSubtotal)}</p>
+                </Total>
               </ItensAndTotal>
               <ValueFrete>
-                <Frete>Valor do frete</Frete>
+                <Frete>
+                  <p>Valor do frete</p>
+                </Frete>
                 {cart.FreteTotal === 0 ? (
-                  <FretePrice color="green">Frete grátis</FretePrice>
+                  <FretePrice color="green">
+                    <p>Frete grátis</p>
+                  </FretePrice>
                 ) : (
                   <FretePrice color="red">
-                    {formatValue(cart.FreteTotal)}
+                    <p>{formatValue(cart.FreteTotal)}</p>
                   </FretePrice>
                 )}
               </ValueFrete>
               <hr />
-              <TotalOrder>Total: {formatValue(cart.OrderTotal)}</TotalOrder>
+              <TotalOrder>
+                <p>Total: {formatValue(cart.OrderTotal)}</p>
+              </TotalOrder>
 
-              <ButtonFinishOrder>Finalizar comprar</ButtonFinishOrder>
+              <ButtonFinishOrder>
+                <p>Finalizar comprar</p>
+              </ButtonFinishOrder>
               <KeepBuying>
-                <Link to="/">Continue comprando</Link>
+                <Link to="/games">Continue comprando</Link>
               </KeepBuying>
             </OrderSummary>
           </Resume>

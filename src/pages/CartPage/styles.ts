@@ -17,7 +17,7 @@ export const Content = styled.div`
     padding: 36px 0 4px;
     font-weight: 600;
     padding-top: 0;
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       text-align: center;
       font-size: 24px;
       line-height: 28px;
@@ -55,7 +55,7 @@ export const CardGame = styled.div`
   transition: 0.2s;
   border-radius: 5px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     flex-direction: column;
   }
 
@@ -66,7 +66,7 @@ export const CardGame = styled.div`
 
 export const Image = styled.img`
   width: 15%;
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 100%;
     max-width: 200px;
   }
@@ -77,23 +77,36 @@ export const Info = styled.div`
   /* align-items:center; */
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const GameInfo = styled.div`
   width: 85%;
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     margin-top: 20px;
   }
 `;
 export const Name = styled(Link)`
   text-decoration: none;
-  color: black;
   width: 60%;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+
+  h1 {
+    color: black;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+  }
 `;
 export const Quantity = styled.div`
   display: flex;
@@ -107,12 +120,12 @@ export const SubtotalPrice = styled.div`
   justify-content: center;
   align-items: center;
 
-  h5 {
+  p {
     font-size: 20px;
     color: #000;
   }
 
-  h6 {
+  span {
     margin-top: 10px;
     font-size: 12px;
     color: #8a8a8a;
@@ -150,14 +163,18 @@ export const ItensAndTotal = styled.div`
   justify-content: space-between;
 `;
 export const Itens = styled.div`
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
+  p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
 `;
 export const Total = styled.div`
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
+  p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
 `;
 export const ValueFrete = styled.div`
   padding-top: 18px;
@@ -166,9 +183,11 @@ export const ValueFrete = styled.div`
   justify-content: space-between;
 `;
 export const Frete = styled.div`
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
+  p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
 `;
 
 interface FretePriceProps {
@@ -176,28 +195,30 @@ interface FretePriceProps {
 }
 
 export const FretePrice = styled.div<FretePriceProps>`
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
+  p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
 
-  ${props =>
-    props.color &&
-    css`
-      color: ${props.color};
-    `}
+    ${props =>
+      props.color &&
+      css`
+        color: ${props.color};
+      `}
+  }
 `;
 export const TotalOrder = styled.div`
-  padding-top: 18px;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
+  p {
+    padding-top: 18px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
 `;
-export const ButtonFinishOrder = styled.div`
+export const ButtonFinishOrder = styled.button`
   margin-top: 18px;
   width: 100%;
   border: 2px solid transparent;
-  outline: 0;
-  color: #fff;
   background-color: #0067b8;
   display: flex;
   align-items: center;
@@ -205,6 +226,11 @@ export const ButtonFinishOrder = styled.div`
   height: 40px;
   cursor: pointer;
   transition: 0.2s;
+
+  p {
+    color: #fff;
+    font-size: 14px;
+  }
 
   :hover {
     background-color: #005da6;
@@ -229,6 +255,14 @@ export const AlterQuantity = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+
+  @media (max-width: 600px) {
+    margin-left: 0px;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ButtonAddProductQuantity = styled.button`
@@ -239,6 +273,10 @@ export const ButtonAddProductQuantity = styled.button`
 
   :hover {
     color: #388f10;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0 5px;
   }
 `;
 export const ButtonRemoveProductQuantity = styled.button`

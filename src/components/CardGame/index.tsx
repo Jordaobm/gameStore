@@ -21,8 +21,12 @@ const CardGame: React.FC<CardGameProps> = ({ product }) => {
         <ImageGame src={product.image} />
       </ImageContent>
       <GameInfo>
-        <GameTitle>{product.name}</GameTitle>
-        <GamePrice>{formatValue(product.price)}</GamePrice>
+        <GameTitle>
+          <h3>{product.name}</h3>
+        </GameTitle>
+        <GamePrice>
+          <p>{formatValue(product.price)}</p>
+        </GamePrice>
       </GameInfo>
     </Container>
   );

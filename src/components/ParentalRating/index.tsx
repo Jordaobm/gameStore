@@ -12,32 +12,37 @@ const ParentalRating: React.FC<ParentalRatingProps> = ({
     case '18 anos':
       return (
         <Container color="#000">
-          <Value>18</Value>
+          <Value>
+            <p>18</p>
+          </Value>
         </Container>
       );
     case '16 anos':
       return (
         <Container color="red">
-          <Value>16</Value>
+          <Value>
+            <p>16</p>
+          </Value>
         </Container>
       );
 
     case '14 anos':
       return (
         <Container color="orange">
-          <Value>14</Value>
+          <Value>
+            <p>14</p>
+          </Value>
         </Container>
       );
     default:
       return (
         <Container color="green">
-          <Value>L</Value>
+          <Value>
+            <p>L</p>
+          </Value>
         </Container>
       );
-      break;
   }
-
-  return <div />;
 };
 
 export default ParentalRating;
