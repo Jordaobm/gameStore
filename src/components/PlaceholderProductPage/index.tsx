@@ -1,106 +1,146 @@
 import React from 'react';
 import ReactPlaceholder from 'react-placeholder';
-import "react-placeholder/lib/reactPlaceholder.css";
-import { Content, Buy, Category, Description, Developer, DeveloperAndCategory, GameInfo, Name, Price } from './styles';
+import {
+  Container,
+  Content,
+  ContentDescription,
+  ContentImage,
+  ContentBuy,
+  Name,
+  Categories,
+  ParentalRating,
+  AddFavorites,
+  Description,
+  Price,
+  AddCart,
+  KeepBuying,
+} from './styles';
+import 'react-placeholder/lib/reactPlaceholder.css';
 
-const Placeholder: React.FC = () => {
-    return (
-        <>
-            <ReactPlaceholder
-                style={{ width: '98.79vw', height: '100vh' }}
-                showLoadingAnimation={true}
-                type='rect'
-                ready={false}
-                color='#E0E0E0'>
-            </ReactPlaceholder>
+const PlaceholderProductPage: React.FC = () => (
+  <Container>
+    <ReactPlaceholder type="rect" ready={false} showLoadingAnimation>
+      <>/</>
+    </ReactPlaceholder>
 
-            <Content>
-                <ReactPlaceholder
-                    style={{ width: 312, height: 312, marginRight: 35 }}
-                    showLoadingAnimation={true}
-                    type='rect'
-                    ready={false}
-                    color='#E0E0E0'>
-                </ReactPlaceholder>
-                <GameInfo>
-                    <div>
-                        <Name>
-                            <ReactPlaceholder
-                                style={{ width: 280, height: 40 }}
-                                showLoadingAnimation={true}
-                                type='rect'
-                                ready={false}
-                                color='#E0E0E0'>
-                            </ReactPlaceholder>
-                        </Name>
+    <Content>
+      <ContentImage>
+        <ReactPlaceholder
+          type="rect"
+          ready={false}
+          color="#E0E0E0"
+          showLoadingAnimation
+          style={{ width: '100%', height: '100%' }}
+        >
+          <>/</>
+        </ReactPlaceholder>
+      </ContentImage>
 
+      <ContentDescription>
+        <Name>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%', height: '100%' }}
+          >
+            <></>
+          </ReactPlaceholder>
+        </Name>
+        <Categories>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </Categories>
+        <ParentalRating>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </ParentalRating>
+        <AddFavorites>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </AddFavorites>
+        <Description>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </Description>
+      </ContentDescription>
+      <ContentBuy>
+        <Price>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </Price>
+        <AddCart>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </AddCart>
+        <AddCart>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </AddCart>
+        <KeepBuying>
+          <ReactPlaceholder
+            type="rect"
+            ready={false}
+            color="#E0E0E0"
+            showLoadingAnimation
+            style={{ width: '100%' }}
+          >
+            <>/</>
+          </ReactPlaceholder>
+        </KeepBuying>
+      </ContentBuy>
+    </Content>
+  </Container>
+);
 
-                        <DeveloperAndCategory>
-                            <Developer>
-                                <ReactPlaceholder
-                                    style={{ width: 100, height: 20, marginTop: 10 }}
-                                    showLoadingAnimation={true}
-                                    type='rect'
-                                    ready={false}
-                                    color='#E0E0E0'>
-                                </ReactPlaceholder>
-                            </Developer>
-                            <Category>
-                                <ReactPlaceholder
-                                    style={{ width: 200, height: 20, marginTop: 10, marginLeft: -10 }}
-                                    showLoadingAnimation={true}
-                                    type='rect'
-                                    ready={false}
-                                    color='#E0E0E0'>
-                                </ReactPlaceholder>
-                            </Category>
-                        </DeveloperAndCategory>
-                    </div>
-                    <ReactPlaceholder
-                        style={{ width: 30, height: 30 }}
-                        showLoadingAnimation={true}
-                        type='rect'
-                        ready={false}
-                        color='#E0E0E0'>
-                    </ReactPlaceholder>
-                    <Description>
-                        <ReactPlaceholder
-                            style={{ width: 500, height: 150 }}
-                            showLoadingAnimation={true}
-                            type='rect'
-                            ready={false}
-                            color='#E0E0E0'>
-                        </ReactPlaceholder>
-                    </Description>
-                </GameInfo>
-                <Buy>
-                    <Price>
-                        <ReactPlaceholder
-                            style={{ width: 200, height: 30 }}
-                            showLoadingAnimation={true}
-                            type='rect'
-                            ready={false}
-                            color='#E0E0E0'>
-                        </ReactPlaceholder>
-                    </Price>
-
-                    <ReactPlaceholder
-                        style={{ width: 200, height: 30, marginTop: 10 }}
-                        showLoadingAnimation={true}
-                        type='rect'
-                        ready={false}
-                        color='#E0E0E0'>
-                    </ReactPlaceholder>
-                    <ReactPlaceholder
-                        style={{ width: 140, height: 20, marginTop: 10 }}
-                        showLoadingAnimation={true}
-                        type='rect'
-                        ready={false}
-                        color='#E0E0E0'>
-                    </ReactPlaceholder>
-                </Buy>
-            </Content>
-        </>
-    )
-}
-export default Placeholder;
+export default PlaceholderProductPage;

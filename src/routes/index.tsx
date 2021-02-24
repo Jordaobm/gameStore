@@ -7,15 +7,15 @@ import Home from '../pages/Home';
 import ProductPage from '../pages/ProductPage';
 
 const Routes: React.FC = () => {
-    return (
-        <Switch>
-            <Route component={Home} path='/' exact />
-            <Route component={Favorites} path='/favorites' />
-            <Route component={ProductPage} path='/product/:product' />
-            <Route component={CartPage} path='/cart' />
-            <Route component={Games} path='/games' />
-        </Switch>
-    )
-}
+  return (
+    <Switch>
+      <Route component={Home} path="/" exact />
+      <Route component={Favorites} path="/favorites" />
+      <Route component={ProductPage} path="/product/:product" />
+      <Route component={CartPage} path="/cart" />
+      <Route component={Games} path="/games" />
+    </Switch>
+  );
+};
 
 export default Routes;

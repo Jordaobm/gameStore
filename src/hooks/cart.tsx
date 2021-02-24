@@ -2,113 +2,120 @@ import React, { createContext, useCallback, useContext, useState } from 'react';
 import { Cart, Product } from '../dtos/types';
 
 interface CartContextData {
-    addProductInCart(product: Product): void;
-    removeProductTheCart(product: Product): void;
-    cart: Cart;
+  addProductInCart(product: Product): void;
+  removeProductTheCart(product: Product): void;
+  cart: Cart;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 const CartProvider: React.FC = ({ children }) => {
+  // DEPENDÊNCIAS E FUNÇÕES DO CARRINHO
 
-    // DEPENDÊNCIAS E FUNÇÕES DO CARRINHO
+  const [cart, setCart] = useState<Cart>(() => {
+    const local = localStorage.getItem('@GameStore:localCart');
+    if (local) {
+      const parsed: Cart = JSON.parse(local);
+      return parsed;
+    }
+    return { FreteTotal: 0, OrderSubtotal: 0, OrderTotal: 0, products: [] };
+  });
 
-    const [cart, setCart] = useState<Cart>(() => {
-        const local = localStorage.getItem('@GameStore:localCart');
-        if (local) {
-            const parsed: Cart = JSON.parse(local);
-            return parsed;
-        }
-        return { FreteTotal: 0, OrderSubtotal: 0, OrderTotal: 0, products: [] }
-    });
+  const addProductInCart = useCallback(
+    (product: Product) => {
+      const alreadyExistProductInCart = cart.products.findIndex(
+        findProduct => findProduct.product.id === product.id,
+      );
 
-    const addProductInCart = useCallback((product: Product) => {
+      if (alreadyExistProductInCart >= 0) {
+        cart.products[alreadyExistProductInCart].quantity++;
+      }
 
-        const alreadyExistProductInCart = cart.products.findIndex(findProduct => findProduct.product.id === product.id);
+      if (alreadyExistProductInCart < 0) {
+        cart.products.push({ quantity: 1, product });
+      }
 
-        if (alreadyExistProductInCart >= 0) {
-            cart.products[alreadyExistProductInCart].quantity++;
-        }
+      let subtotal = 0;
+      let frete = 0;
 
-        if (alreadyExistProductInCart < 0) {
-            cart.products.push({ quantity: 1, product })
-        }
+      cart.products.map(productAdd => {
+        subtotal += productAdd.product.price * productAdd.quantity;
+        frete += 10 * productAdd.quantity;
+        return productAdd;
+      });
 
-        let subtotal = 0;
-        let frete = 0;
+      let total = 0;
+      if (subtotal > 250) {
+        frete = 0;
+        total = subtotal;
+      } else {
+        total = subtotal + frete;
+      }
 
-        cart.products.map(product => {
-            subtotal = subtotal + product.product.price * product.quantity;
-            frete = frete + 10 * product.quantity
-            return product;
-        })
+      setCart({
+        FreteTotal: frete,
+        OrderSubtotal: subtotal,
+        OrderTotal: total,
+        products: cart.products,
+      });
+    },
+    [cart.products],
+  );
 
-        let total = 0;        
-        if(subtotal> 250){
-            frete = 0;
-            total = subtotal;
-        } else {
-            total = subtotal+frete;
-        }
+  const removeProductTheCart = useCallback(
+    (product: Product) => {
+      const existProductInTheCart = cart.products.findIndex(
+        index => index.product.id === product.id,
+      );
 
-        setCart({
-            FreteTotal: frete,
-            OrderSubtotal: subtotal,
-            OrderTotal: total,
-            products: cart.products,
-        })
-    }, [cart.products])
+      if (existProductInTheCart >= 0) {
+        cart.products[existProductInTheCart].quantity > 1
+          ? cart.products[existProductInTheCart].quantity--
+          : cart.products.splice(existProductInTheCart, 1);
+      }
 
-    const removeProductTheCart = useCallback((product: Product) => {
-        const existProductInTheCart = cart.products.findIndex(index => index.product.id === product.id);
+      let subtotal = 0;
+      let frete = 0;
 
-        if (existProductInTheCart >= 0) {
+      cart.products.map(productRemove => {
+        subtotal += productRemove.product.price * productRemove.quantity;
+        frete += 10 * productRemove.quantity;
+        return productRemove;
+      });
+      let total = 0;
+      if (subtotal > 250) {
+        frete = 0;
+        total = subtotal;
+      } else {
+        total = subtotal + frete;
+      }
 
-            cart.products[existProductInTheCart].quantity > 1 ? cart.products[existProductInTheCart].quantity-- : cart.products.splice(existProductInTheCart, 1)
-        }
+      setCart({
+        FreteTotal: frete,
+        OrderSubtotal: subtotal,
+        OrderTotal: total,
+        products: cart.products,
+      });
+    },
+    [cart.products],
+  );
 
-        let subtotal = 0;
-        let frete = 0;
+  // SALVANDO PRODUTOS
 
-        cart.products.map(product => {
-            subtotal = subtotal + product.product.price * product.quantity;
-            frete = frete + 10 * product.quantity
-            return product;
-        })
-        let total = 0;        
-        if(subtotal> 250){
-            frete = 0;
-            total = subtotal;
-        } else {
-            total = subtotal+frete;
-        }
+  localStorage.setItem('@GameStore:localCart', JSON.stringify(cart));
 
-        setCart({
-            FreteTotal: frete,
-            OrderSubtotal: subtotal,
-            OrderTotal: total,
-            products: cart.products,
-        })
-
-    }, [cart.products])
-
-    // SALVANDO PRODUTOS
-
-    localStorage.setItem('@GameStore:localCart', JSON.stringify(cart));
-
-    return (
-        <CartContext.Provider value={{ addProductInCart, cart, removeProductTheCart }}>
-            {children}
-        </CartContext.Provider>
-    )
-}
+  return (
+    <CartContext.Provider
+      value={{ addProductInCart, cart, removeProductTheCart }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
 
 function useCart(): CartContextData {
-    const context = useContext(CartContext);
-    return context;
+  const context = useContext(CartContext);
+  return context;
 }
 
-export {
-    CartProvider,
-    useCart,
-}
+export { CartProvider, useCart };

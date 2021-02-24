@@ -1,27 +1,27 @@
 import React from 'react';
-import {Container} from './styles';
-import {FiArrowLeft, FiArrowRight} from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import { Container } from './styles';
 
-interface ArrowProps{
-    icon:string;
+interface ArrowProps {
+  icon: string;
 }
 
-const Arrow:React.FC<ArrowProps> = ({icon}) => {
-    if(icon === 'left') {
-        return (
-            <Container>
-                <FiArrowLeft color="#fff"/>
-            </Container>
-        )
-    }
-    if(icon === 'rigth') {
-        return (
-            <Container>
-                <FiArrowRight color="#fff"/>
-            </Container>
-        )
-    }
-    return <div></div>
-}
+const Arrow: React.FC<ArrowProps> = ({ icon }: ArrowProps) => {
+  if (icon === 'left') {
+    return (
+      <Container>
+        <FiArrowLeft color="#fff" />
+      </Container>
+    );
+  }
+  if (icon === 'rigth') {
+    return (
+      <Container>
+        <FiArrowRight color="#fff" />
+      </Container>
+    );
+  }
+  return <div />;
+};
 
 export default Arrow;
