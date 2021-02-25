@@ -10,7 +10,7 @@
   <img alt="Atenção" width="200px" src="https://image.flaticon.com/icons/png/512/1661/1661989.png" />
 </h1>
 
-Nesta ramificação do projeto fiz algumas modificações. A principal modificação foi a substituição do método de busca de produtos. Originalmente no projeto estava sendo utilizada uma Fake API feita com json-server chamada com o Axios pelo front-end da aplicação. No entanto, pretendo publicar esse projeto para visualização na web (sem ter que precisar rodar o projeto localmente para ver o que está acontecendo), logo, precisei substituir a Fake API por um import local direto do product.json. As alterações foram feitas na pagina inicial (src/pages/Home/index.tsx) e também na página individual de cada produto (src/pages/ProductPage/index.tsx).
+<strong>Nesta ramificação do projeto fiz algumas modificações. A principal modificação foi a substituição do método de busca de produtos. Originalmente no projeto estava sendo utilizada uma Fake API feita com json-server chamada com o Axios pelo front-end da aplicação. No entanto, pretendo publicar esse projeto para visualização na web (sem ter que precisar rodar o projeto localmente para ver o que está acontecendo), logo, precisei substituir a Fake API por um import local direto do product.json. As alterações foram feitas na pagina inicial (src/pages/Home/index.tsx) e também na página individual de cada produto (src/pages/ProductPage/index.tsx).</strong>
 
 <h1 align="center">
   <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/main/documents/assets/2.PNG" />
