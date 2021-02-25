@@ -68,12 +68,12 @@ const ProductPage: React.FC = () => {
       const product = data.products.find(
         productFind => productFind.id === Number(params.product),
       );
-      if (product) {
-        if (product.banner) {
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
-        }
+      const image = await product?.banner;
+
+      if (image) {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
       }
       setProduct(product);
     }
