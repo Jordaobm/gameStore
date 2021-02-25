@@ -1,13 +1,13 @@
 # React Challenge - ecommerce
 
 <h1 align="center">
-  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/1.PNG" />
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/main/documents/assets/1.PNG" />
 </h1>
 
 1. Se desejar rodar o projeto em sua máquina para testes e eventuais contribuições (fico extremamente grato), clone o repositório em sua máquina, execute o comando yarn para instalar as depedências do projeto e execute em um terminal `yarn server` para inicializar o servidor local em JSON (FAKE API REST), e em outro terminal execute `yarn start`. O projeto não funcionará se o servidor local em JSON não estiver rodando. (Pois o app depende do server para carregar os produtos)
 
 <h1 align="center">
-  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/2.PNG" />
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/main/documents/assets/2.PNG" />
 </h1>
 
 # Requisitos:
@@ -58,7 +58,7 @@ Desenvolver a parte front-end de um ecommerce de games.
 - Figma(UI design)
 
 <h1 align="center">
-  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/3.PNG" />
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/main/documents/assets/3.PNG" />
 </h1>
 
 ### Requisitos:
