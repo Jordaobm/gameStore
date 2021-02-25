@@ -53,6 +53,16 @@ export const ContentImage = styled.div`
     height: 280px;
   }
 `;
+
+export const GameBanner = styled.div`
+  background-color: #000;
+`;
+
+export const Banner = styled.img`
+  width: 100%;
+  opacity: 0.8;
+`;
+
 export const ContentDescription = styled.div`
   padding: 0 30px;
   width: 50%;

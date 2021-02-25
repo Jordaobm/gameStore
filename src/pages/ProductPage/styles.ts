@@ -109,7 +109,6 @@ export const ParentalRating = styled.div`
   color: #0067b8;
 `;
 export const Description = styled.div`
-  padding-right: 10px;
   p {
     padding-right: 10px;
     font-size: 15px;
