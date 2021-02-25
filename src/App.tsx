@@ -6,17 +6,12 @@ import ErrorPage from './pages/Error';
 import Routes from './routes';
 import { api } from './services/api';
 import { GlobalStyles } from './styles/globalStyles';
+import data from './products.json';
 
 function App() {
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    api.get('/products').catch(response => {
-      setError(true);
-    });
-  }, []);
-
-  if (error) {
+  if (!data.products) {
     return (
       <>
         <ErrorPage />
