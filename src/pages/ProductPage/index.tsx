@@ -3,6 +3,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { FiStar } from 'react-icons/fi';
 import { AiFillStar } from 'react-icons/ai';
 import { motion } from 'framer-motion';
+import ReactPlaceholder from 'react-placeholder/lib';
 import Header from '../../components/Header';
 import {
   Container,
@@ -68,6 +69,13 @@ const ProductPage: React.FC = () => {
       const product = data.products.find(
         productFind => productFind.id === Number(params.product),
       );
+      if (product) {
+        if (product.banner) {
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+        }
+      }
       setProduct(product);
     }
 
@@ -128,16 +136,6 @@ const ProductPage: React.FC = () => {
   return (
     <>
       <Header />
-      <img
-        src={product?.banner}
-        onLoad={() => {
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
-        }}
-        style={{ display: 'none' }}
-        alt={product?.banner}
-      />
       {!loading ? (
         <motion.div
           whileHover={{ transition: { duration: 1.5 } }}
@@ -147,7 +145,14 @@ const ProductPage: React.FC = () => {
         >
           <Container>
             <GameBanner>
-              <Banner src={product?.banner} />
+              <ReactPlaceholder
+                type="rect"
+                ready={true}
+                showLoadingAnimation
+                delay={1}
+              >
+                <Banner src={product?.banner} />
+              </ReactPlaceholder>
             </GameBanner>
             <Content>
               <Image src={product?.image} />
