@@ -4,7 +4,13 @@
   <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/main/documents/assets/1.PNG" />
 </h1>
 
-1. Se desejar rodar o projeto em sua máquina para testes e eventuais contribuições (fico extremamente grato), clone o repositório em sua máquina, execute o comando yarn para instalar as depedências do projeto e execute em um terminal `yarn server` para inicializar o servidor local em JSON (FAKE API REST), e em outro terminal execute `yarn start`. O projeto não funcionará se o servidor local em JSON não estiver rodando. (Pois o app depende do server para carregar os produtos)
+## Atenção
+
+<h1 align="center">
+  <img alt="Atenção" width="700px" src="https://image.flaticon.com/icons/png/512/1661/1661989.png" />
+</h1>
+
+Nesta ramificação do projeto fiz algumas modificações. A principal modificação foi a substituição do método de busca de produtos. Originalmente no projeto estava sendo utilizada uma Fake API feita com json-server chamada com o Axios pelo front-end da aplicação. No entanto, pretendo publicar esse projeto para visualização na web (sem ter que precisar rodar o projeto localmente para ver o que está acontecendo), logo, precisei substituir a Fake API por um import local direto do product.json. As alterações foram feitas na pagina inicial (src/pages/Home/index.tsx) e também na página individual de cada produto (src/pages/ProductPage/index.tsx).
 
 <h1 align="center">
   <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/main/documents/assets/2.PNG" />
