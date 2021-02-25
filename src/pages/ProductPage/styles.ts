@@ -33,6 +33,11 @@ export const Banner = styled.img`
   opacity: 0.8;
 `;
 
+export const BannerPlaceholder = styled.img`
+  width: 100%;
+  display: none;
+`;
+
 export const Image = styled.img`
   width: 30%;
   @media (max-width: 1050px) {

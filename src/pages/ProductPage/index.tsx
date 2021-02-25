@@ -24,6 +24,7 @@ import {
   GoToCart,
   Star,
   ContentFavorites,
+  BannerPlaceholder,
 } from './styles';
 import { Product } from '../../dtos/types';
 import { formatValue } from '../../utils/formatValue';
@@ -127,13 +128,19 @@ const ProductPage: React.FC = () => {
 
   return (
     <>
-      <img
-        src={product?.banner}
-        alt={product?.banner}
-        onLoad={() => setLoading(false)}
-        style={{ display: 'none' }}
-      />
       <Header />
+      <Container>
+        <GameBanner>
+          <BannerPlaceholder
+            onLoad={() => {
+              setTimeout(() => {
+                setLoading(false);
+              }, 1000);
+            }}
+            src={product?.banner}
+          />
+        </GameBanner>
+      </Container>
       {!loading ? (
         <motion.div
           whileHover={{ transition: { duration: 1.5 } }}
