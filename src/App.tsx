@@ -13,8 +13,8 @@ function App() {
   useEffect(() => {
     api.get('/products').catch(response => {
       setError(true);
-    })
-  }, [])
+    });
+  }, []);
 
   if (error) {
     return (
@@ -22,17 +22,15 @@ function App() {
         <ErrorPage />
         <GlobalStyles />
       </>
-    )
+    );
   }
 
   return (
     <BrowserRouter>
       <CartProvider>
         <FavoritesContextProvider>
-
           <Routes />
         </FavoritesContextProvider>
-
       </CartProvider>
 
       <GlobalStyles />

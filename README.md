@@ -1,6 +1,14 @@
-# React Challenge - ECOMMERCE
+# React Challenge - ecommerce
+
+<h1 align="center">
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/1.PNG" />
+</h1>
 
 1. Se desejar rodar o projeto em sua máquina para testes e eventuais contribuições (fico extremamente grato), clone o repositório em sua máquina, execute o comando yarn para instalar as depedências do projeto e execute em um terminal `yarn server` para inicializar o servidor local em JSON (FAKE API REST), e em outro terminal execute `yarn start`. O projeto não funcionará se o servidor local em JSON não estiver rodando. (Pois o app depende do server para carregar os produtos)
+
+<h1 align="center">
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/2.PNG" />
+</h1>
 
 # Requisitos:
 
@@ -45,29 +53,36 @@ Desenvolver a parte front-end de um ecommerce de games.
 - react-router-dom (navegação mais performática);
 - styled-components (estilização dos componentes React por meio de arquivos TS)
 
-## Demais ferramentas e sites que auxiliaram na construção da UI:
+### Demais ferramentas e sites que auxiliaram na construção da UI:
 
 - Figma(UI design)
 
-### Requisitos Funcionais:
+<h1 align="center">
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/3.PNG" />
+</h1>
 
-- [x]  O usuário pode adicionar produtos do carrinho
-- [x]  O usuário pode deletar produtos do carrinho
-- [x]  O usuário pode listar produtos por preço, popularidade, ordem alfabética e também pode pesquisar pelo nome do produto;
+### Requisitos:
 
-### Requisitos Não Funcionais:
+- [x]  Os produtos devem ser renderizados dinamicamente através do products.json anexado, assets.zip anexados também.
+- [x]  Os valores exibidos no checkout (frete, subtotal e total) devem ser calculados dinamicamente.
+- [x]  O usuário poderá adicionar e remover produtos do carrinho.
+- [x]  O usuário poderá ordenar os produtos por preço, popularidade (score) e ordem alfabética.
+- [x]  A cada produto adicionado, deve-se somar R$ 10,00 ao frete.
+- [x]  O frete é grátis para compras acima de R$ 250,00.
 
-- [x]  A aplicação deve mostrar ao usuário se ele está conectado à API.
-- [x]  A aplicação deve mostrar ao usuário, na Home, qual o produto com melhor availação como um destaque na tela inicial.
-- [x]  A aplicação dará um feedback visual quando o usuário estiver com o mouse em cima do produto para que ele saiba qual produto estará acessando.
-- [x]  A aplicação deve mostrar ao usuário, na pagina de produtos, um banner do produto selecionado.
-- [x]  A aplicação deve mostrar ao usuário se o produto em questão, na página destinada ao mesmo, se ele já está no carrinho e a quantidade que se encontra no carrinho.
-- [x]  A aplicação deve mostrar ao usuário se o produto em questão, na página destinada ao mesmo, se ele já esta no grupo dos produtos favoritos do usuário.
-- [x]  Na página de Games, o usuário deve poder listar todos os produtos, ordenar conforme o filtro selecionado e também pesquisar pelo produto. Ele deve poder acessar o produto diretamente desta página também.
-- [x]  Na página de Favoritos, o usuário deve poder ver os produtos que ele favoritou, podendo acessá-los desta página.
-- [x]  Na página de carrinho, o usuário deve poder ver os produtos adicionados ao carrinho.
-- [x]  Ainda no carrinho, o usário deve poder ver o valor de cada produto de forma individual, valor agredado à quantidade, valor subtotal da compra (sem o frete) e valor total da compra (com o frete).
-- [x]  Caso o valor subtotal da compra exceda os R$250,00, o frete será totalmente grátis.
-- [x]  O carrinho ainda deve informar em verde quando o frete é grátis e em vermelho quando ele for adicionado ao total.
-- [x]  O usuário, da página de carrinho, se desejar, deve poder retornar às compras pelo link "Continue comprando".
-- [x]  No cabeçalho da aplicação, no icone de carrinho, deve ser possível ver o número de itens que há dentro do carrinho. (OBS: Ele mostrará apenas a quantidade de itens diferentes dentro do carrinho. Se houver uma quantidade maior de um determinado produto, ela não será contabilizada. Somente contabilizará produtos diferentes, da mesma forma que o "Item()" que está na página de carrinho, sessão de resumo).
+### Implementações e correções feitas após o feedback do corretor do desafio:
+
+- [ ]  Faltou uma versão online da aplicação para testarmos.
+- [x]  Responsividade
+- [x]  Faltou um loading, na tela de detalhes de produto, a demora em carregar a imagem em background, gera uma quebra na tela
+- [x]  Botão de continuar comprando na tela de detalhes de produto está desalinhado, quebra na versão mobile
+- [x]  Poderia ser possivel alterar a quantidade de produtos apartir do carrinho
+- [x]  Faltou a opção de adicionar um jogo na lista de favoritos
+- [x]  O Conceito de requisitos não funcionais está errado
+- [x]  json-server deveria entrar como dev-dependencie
+- [x]  poderia utilizar 2 espaços como padrão na identação
+- [x]  poderia utilizar 2 espaços como padrão na identação
+- [x]  Linhas muito extensas, devem ser quebradas, normalmente utilizamos 80 ou 100 colunas no maximo por linha, no exemplo a seguir a linha tem 289 colunas: src/pages/CartPage/index.tsx linha 7
+- [x]  Foi utilizado < h 5> < h 6> < h 3> apenas para estilizar o texto, lembre-se que existe um motivo por tras de cada tag html, lembre-se de utilizar a tag pela semântica, e não pelo visual, o visual fazemos com CSS. (src/pages/CartPage/index.tsx)
+- [x]  Código comentado foi commitado. src/pages/Home/index.tsx linha 69
+- [x]  Os dois switch cases do código não tem implementação na clausula default
