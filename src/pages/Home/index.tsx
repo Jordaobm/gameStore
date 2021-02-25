@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Parallax } from 'react-parallax';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ReactPlaceholder from 'react-placeholder/lib';
 import Header from '../../components/Header';
 import {
   BackgroundParallax,
@@ -11,6 +12,9 @@ import {
   NewGames,
   NewGameScroll,
   NewGamesTextAndAction,
+  BackgroundParallaxPlaceholder,
+  BannerPlaceholder,
+  ImageFeaturedGame,
 } from './styles';
 import CardGame from '../../components/CardGame';
 import Arrow from '../../components/Arrow';
@@ -20,6 +24,7 @@ import data from '../../products.json';
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [featuredGame, setFeaturedGame] = useState<Product>();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const { products } = data;
@@ -52,22 +57,42 @@ const Home: React.FC = () => {
         animate="visible"
         variants={variants}
       >
-        <BackgroundParallax>
-          <Parallax
-            blur={3}
-            bgImageStyle={{ opacity: '.5', backgroundColor: '#000' }}
-            style={{ height: '88vh' }}
-            bgImage={featuredGame?.banner}
-            strength={200}
-          >
-            <FeaturedText>
-              <FeaturedInfo>
-                <h3>Destaque da semana</h3>
-                <h4>{featuredGame?.name}</h4>
-              </FeaturedInfo>
-            </FeaturedText>
-          </Parallax>
-        </BackgroundParallax>
+        <BannerPlaceholder>
+          <ImageFeaturedGame
+            src={featuredGame?.banner}
+            alt={featuredGame?.banner}
+            onLoad={() => {
+              setTimeout(() => {
+                setLoading(false);
+              }, 1000);
+            }}
+          />
+        </BannerPlaceholder>
+
+        {!loading ? (
+          <BackgroundParallax>
+            <Parallax
+              blur={3}
+              bgImageStyle={{ opacity: '.5', backgroundColor: '#000' }}
+              style={{ height: '88vh' }}
+              bgImage={featuredGame?.banner}
+              strength={200}
+            >
+              <FeaturedText>
+                <FeaturedInfo>
+                  <h3>Destaque da semana</h3>
+                  <h4>{featuredGame?.name}</h4>
+                </FeaturedInfo>
+              </FeaturedText>
+            </Parallax>
+          </BackgroundParallax>
+        ) : (
+          <BackgroundParallaxPlaceholder>
+            <ReactPlaceholder type="rect" ready={false} showLoadingAnimation>
+              <>/</>
+            </ReactPlaceholder>
+          </BackgroundParallaxPlaceholder>
+        )}
         <Container>
           <NewGames>
             <NewGamesTextAndAction>

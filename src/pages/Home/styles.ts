@@ -11,6 +11,17 @@ export const Container = styled.div`
 export const BackgroundParallax = styled.div`
   background-color: #000;
 `;
+export const BannerPlaceholder = styled.div``;
+
+export const ImageFeaturedGame = styled.img`
+  display: none;
+`;
+
+export const BackgroundParallaxPlaceholder = styled.div`
+  background-color: transparent;
+  width: 100%;
+  height: 88vh;
+`;
 
 export const FeaturedText = styled.div`
   max-width: 1120px;
