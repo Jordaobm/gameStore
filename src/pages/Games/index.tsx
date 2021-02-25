@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import Header from '../../components/Header';
 import PlaceholderGamesLoad from '../../components/PlaceholderGamesLoad';
 import { Product } from '../../dtos/types';
-import { api } from '../../services/api';
 import { formatValue } from '../../utils/formatValue';
 import {
   Container,
@@ -25,6 +24,7 @@ import {
   SearchContent,
   SearchInput,
 } from './styles';
+import data from '../../products.json';
 
 const Games: React.FC = () => {
   const [filterStyle, setFilterStyle] = useState('');
@@ -34,13 +34,12 @@ const Games: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get<Product[]>('/products').then(response => {
-      setProducts(response.data);
-      setFilter(response.data);
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-    });
+    const { products } = data;
+    setProducts(products);
+    setFilter(products);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   }, []);
 
   const handleSelectFilter = useCallback(

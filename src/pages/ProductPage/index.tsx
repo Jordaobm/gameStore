@@ -25,13 +25,13 @@ import {
   Star,
   ContentFavorites,
 } from './styles';
-import { api } from '../../services/api';
 import { Product } from '../../dtos/types';
 import { formatValue } from '../../utils/formatValue';
 import ParentalRating from '../../components/ParentalRating';
 import { useCart } from '../../hooks/cart';
 import { useFavorites } from '../../hooks/favorites';
 import PlaceholderProductPage from '../../components/PlaceholderProductPage';
+import data from '../../products.json';
 
 interface RouteParams {
   product: string;
@@ -65,14 +65,17 @@ const ProductPage: React.FC = () => {
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await api.get<Product>(`/products/${params.product}`);
-      setProduct(response.data);
-      const loadBanner = await response.data.banner;
-      if (loadBanner) {
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
+      const product = data.products.find(
+        productFind => productFind.id === Number(params.product),
+      );
+      if (product) {
+        if (product.banner) {
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+        }
       }
+      setProduct(product);
     }
 
     loadProducts();
@@ -134,7 +137,7 @@ const ProductPage: React.FC = () => {
       <Header />
       {!loading ? (
         <motion.div
-          whileHover={{ transition: { duration: 1 } }}
+          whileHover={{ transition: { duration: 1.5 } }}
           initial="hidden"
           animate="visible"
           variants={variants}

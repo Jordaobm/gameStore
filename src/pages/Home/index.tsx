@@ -14,36 +14,28 @@ import {
 } from './styles';
 import CardGame from '../../components/CardGame';
 import Arrow from '../../components/Arrow';
-import { api } from '../../services/api';
 import { Product } from '../../dtos/types';
-import ErrorPage from '../Error';
+import data from '../../products.json';
 
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [featuredGame, setFeaturedGame] = useState<Product>();
 
   useEffect(() => {
-    api
-      .get<Product[]>('/products')
-      .then(response => {
-        setProducts(response.data);
-        const products = response.data;
+    const { products } = data;
 
-        let scoreCompare = 0;
-        products.map(product => {
-          const isBigger = product.score > scoreCompare;
-          if (isBigger) {
-            scoreCompare = product.score;
-          }
-          return product;
-        });
-        setFeaturedGame(
-          products.find(product => product.score === scoreCompare),
-        );
-      })
-      .catch(response => {
-        return <ErrorPage />;
-      });
+    setProducts(products);
+
+    let scoreCompare = 0;
+    products.map(product => {
+      const isBigger = product.score > scoreCompare;
+      if (isBigger) {
+        scoreCompare = product.score;
+      }
+      setFeaturedGame(products.find(product => product.score === scoreCompare));
+
+      return product;
+    });
   }, []);
 
   const variants = {
