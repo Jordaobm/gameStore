@@ -68,13 +68,6 @@ const ProductPage: React.FC = () => {
       const product = data.products.find(
         productFind => productFind.id === Number(params.product),
       );
-      if (product) {
-        if (product.banner) {
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
-        }
-      }
       setProduct(product);
     }
 
@@ -134,6 +127,12 @@ const ProductPage: React.FC = () => {
 
   return (
     <>
+      <img
+        src={product?.banner}
+        alt={product?.banner}
+        onLoad={() => setLoading(false)}
+        style={{ display: 'none' }}
+      />
       <Header />
       {!loading ? (
         <motion.div

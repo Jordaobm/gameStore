@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  top: -220px;
+  top: -180px;
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
