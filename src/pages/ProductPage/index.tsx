@@ -3,7 +3,6 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { FiStar } from 'react-icons/fi';
 import { AiFillStar } from 'react-icons/ai';
 import { motion } from 'framer-motion';
-import ReactPlaceholder from 'react-placeholder/lib';
 import Header from '../../components/Header';
 import {
   Container,
@@ -145,14 +144,7 @@ const ProductPage: React.FC = () => {
         >
           <Container>
             <GameBanner>
-              <ReactPlaceholder
-                type="rect"
-                ready={true}
-                showLoadingAnimation
-                delay={1}
-              >
-                <Banner src={product?.banner} />
-              </ReactPlaceholder>
+              <Banner src={product?.banner} />
             </GameBanner>
             <Content>
               <Image src={product?.image} />
