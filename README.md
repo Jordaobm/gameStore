@@ -1,7 +1,14 @@
 # React Challenge - ecommerce
 
+<h1 align="center">
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/1.PNG" />
+</h1>
 
 1. Se desejar rodar o projeto em sua máquina para testes e eventuais contribuições (fico extremamente grato), clone o repositório em sua máquina, execute o comando yarn para instalar as depedências do projeto e execute em um terminal `yarn server` para inicializar o servidor local em JSON (FAKE API REST), e em outro terminal execute `yarn start`. O projeto não funcionará se o servidor local em JSON não estiver rodando. (Pois o app depende do server para carregar os produtos)
+
+<h1 align="center">
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/2.PNG" />
+</h1>
 
 # Requisitos:
 
@@ -50,6 +57,10 @@ Desenvolver a parte front-end de um ecommerce de games.
 
 - Figma(UI design)
 
+<h1 align="center">
+  <img alt="GameStore" width="700px" src="https://github.com/Jordaobm/gameStore/blob/correcting-features-and-layout/documents/assets/3.PNG" />
+</h1>
+
 ### Requisitos:
 
 - [x]  Os produtos devem ser renderizados dinamicamente através do products.json anexado, assets.zip anexados também.
@@ -72,6 +83,6 @@ Desenvolver a parte front-end de um ecommerce de games.
 - [x]  poderia utilizar 2 espaços como padrão na identação
 - [x]  poderia utilizar 2 espaços como padrão na identação
 - [x]  Linhas muito extensas, devem ser quebradas, normalmente utilizamos 80 ou 100 colunas no maximo por linha, no exemplo a seguir a linha tem 289 colunas: src/pages/CartPage/index.tsx linha 7
-- [x]  Foi utilizado <h5> <h6> <h3> apenas para estilizar o texto, lembre-se que existe um motivo por tras de cada tag html, lembre-se de utilizar a tag pela semântica, e não pelo visual, o visual fazemos com CSS. (src/pages/CartPage/index.tsx)
+- [x]  Foi utilizado < h 5> < h 6> < h 3> apenas para estilizar o texto, lembre-se que existe um motivo por tras de cada tag html, lembre-se de utilizar a tag pela semântica, e não pelo visual, o visual fazemos com CSS. (src/pages/CartPage/index.tsx)
 - [x]  Código comentado foi commitado. src/pages/Home/index.tsx linha 69
 - [x]  Os dois switch cases do código não tem implementação na clausula default
