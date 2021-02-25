@@ -25,12 +25,11 @@ export const Content = styled.div`
 `;
 
 export const GameBanner = styled.div`
-  background-color: #000;
+  filter: brightness(80%);
 `;
 
 export const Banner = styled.img`
   width: 100%;
-  opacity: 0.8;
 `;
 
 export const BannerPlaceholder = styled.img`
